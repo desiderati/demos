@@ -1,0 +1,48 @@
+# auto1-demonio-rpg
+
+Project that I used as example of how to implement a MVC Pattern using only the Java language.
+
+## Prerequisites
+
+* JDK 8
+* Apache Maven 3.6.0
+
+## Goal
+
+Program a command line based Role Playing Game.
+
+## Considerations
+
+It was created using the the MVC Pattern.
+
+![MVC](mvc.jpg)
+
+![Diagram](diagram.jpg)
+
+## Improvements
+
+* A map which shows the whole world, at least the part that is known.
+* Character customization.
+* Better level up/level down algorithms.
+* Other kind of monsters.
+* Better player statics.
+
+##  How to Compile Source Code (Maven is required!)
+
+Project is based on Maven and can be built using the following command:
+
+```
+mvn clean package
+```
+
+## How to Run?
+
+### IDE
+
+Just execute `br.tech.desiderati.demo.demonio.controller.StartController` class.
+
+### JAR
+
+```
+java -jar target/demo-auto1-demonio-rpg-1.0.0-SNAPSHOT.jar
+```

@@ -1,0 +1,18 @@
+version: '3'
+services:
+  treasy-tree-editor-server:
+    container_name: treasy-tree-editor-server
+    image: 'desiderati/treasy-tree-editor-server:latest'
+    environment:
+      SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url":"jdbc:mysql://treasy-tree-editor-mysql:3306/treasy"
+      }'
+
+    ports:
+      - '9090:9090'
+    networks:
+      - treasy-tree-editor-mysql_treasy-net
+
+networks:
+  treasy-tree-editor-mysql_treasy-net:
+    external: true

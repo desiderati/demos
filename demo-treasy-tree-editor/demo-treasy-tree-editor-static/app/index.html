@@ -1,0 +1,233 @@
+<!--
+  ~ Copyright (c) 2019 - Felipe Desiderati
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+  ~ associated documentation files (the "Software"), to deal in the Software without restriction,
+  ~ including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+  ~ and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+  ~ subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+  ~ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  -->
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7">
+<![endif]-->
+
+<!--[if IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8">
+<![endif]-->
+
+<!--[if IE 8]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9">
+<![endif]-->
+
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js">
+<!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>treasy-tree-editor-static</title>
+
+        <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
+        <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="lib/angular-ui-tree/dist/angular-ui-tree.css">
+        <link rel="stylesheet" href="lib/sweetalert2/dist/sweetalert2.css">
+        <link rel="stylesheet" href="app.css">
+
+        <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="lib/jquery/dist/jquery.min.js"></script>
+        <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="lib/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+        <!-- http://stackoverflow.com/a/21146439 -->
+        <style>
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+                display: none !important;
+            }
+        </style>
+    </head>
+
+    <body ng-controller="myController as myController">
+        <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser.
+            Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!--
+            Em uma aplicação real, estes templates ficariam em uma pasta separada!!!
+        -->
+        <script type="text/ng-template" id="product-list.html">
+            <div ui-tree-handle class="tree-node-content angular-ui-tree-handle" ng-class="{
+                    'tree-node-content tree-node-content-selected angular-ui-tree-handle': myController.isSelected(product),
+                    'tree-node-content angular-ui-tree-handle': !myController.isSelected(product)}">
+                <a class="button btn" ng-if="product.children && product.children.length > 0" ng-click="myController.toggle(this)">
+                    <span class="tree-node-content-text-with-button glyphicon glyphicon-chevron-right"
+                          ng-class="{
+                            'tree-node-content-text-with-button glyphicon-chevron-right': collapsed,
+                            'tree-node-content-text-with-button glyphicon-chevron-down': !collapsed}"></span></a>
+                <span ng-style="{'padding-inline-start' : (!product.children || product.children.length == 0) ? '20px' : '0px'}"
+                      ng-click="myController.selectProduct(this)" class="tree-node-content-text"
+                      uib-tooltip="{{myController.renderProductTooltip(product)}}">
+                    {{product.description}}
+                </span>
+            </div>
+            <ol ui-tree-nodes ng-model="product.children" ng-class="{hidden: collapsed}"
+                class="tree-nodes angular-ui-tree-nodes">
+                <li ui-tree-node ng-repeat="product in product.children" ng-include="'product-list.html'"
+                    ng-show="myController.isVisible(product)" class="tree-node angular-ui-tree-node" collapsed="true"
+                    expand-on-hover="false"></li>
+            </ol>
+        </script>
+
+        <!--
+            Em uma aplicação real, estes templates ficariam em uma pasta separada!!!
+        -->
+        <script type="text/ng-template" id="product-form.html">
+            <div class="modal-header">
+                <h3 class="modal-title">{{myModalController.isNewProduct ? 'Cadastrar' : 'Editar'}} Produto</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" ng-submit="myModalController.submit()" name="productForm">
+                    <div class="form-group row">
+                        <label class="control-label col-sm-2">Código</label>
+                        <div class="col-sm-2">
+                            <input class="form-control" type="text" ng-model="myModalController.product.id"
+                                   ng-readonly="!myModalController.isNewProduct" only-numbers
+                                   name="id" title="id" required ng-maxlength="5" maxlength="5"/>
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <!--
+                               Esta é uma aplicação de exemplo, o jeito adequado seria utilizar I18N e
+                               bter as mensagens de erro do servidor!!!
+                           -->
+                            <span ng-show="productForm.id.$dirty && productForm.id.$error.required" ng-cloak
+                                  class="alert-danger">
+                                    O Código do Produto é obrigatório!</span>
+                            <span ng-show="productForm.id.$dirty && productForm.id.$error.maxlength" ng-cloak
+                                  class="alert-danger">
+                                    O Código do Produto não pode ser maior que 99999!</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-sm-2">Descrição</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" ng-model="myModalController.product.description"
+                                   name="description" title="description" required ng-maxlength="25"
+                                   maxlength="25"/>
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <!--
+                                Esta é uma aplicação de exemplo, o jeito adequado seria utilizar I18N e
+                                bter as mensagens de erro do servidor!!!
+                            -->
+                            <span ng-show="productForm.description.$dirty && productForm.description.$error.required"
+                                  ng-cloak class="alert-danger">
+                                    A Descrição do Produto é obrigatória!</span>
+                            <span ng-show="productForm.description.$dirty && productForm.description.$error.maxlength"
+                                  ng-cloak class="alert-danger">
+                                    A Descrição do Produto não pode ultrapassar o tamanho máximo de 25 caracteres!</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-sm-2">Observação</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" ng-model="myModalController.product.note"
+                                   name="note" title="note" ng-maxlength="100" maxlength="100"/>
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <!--
+                                Esta é uma aplicação de exemplo, o jeito adequado seria utilizar I18N e
+                                bter as mensagens de erro do servidor!!!
+                            -->
+                            <span ng-show="productForm.note.$dirty && productForm.note.$error.maxlength" ng-cloak
+                                  class="alert-danger">
+                                    A Observação do Produto não pode ultrapassar o tamanho máximo de 100 caracteres!</span>
+                        </div>
+                    </div>
+
+                    <!-- Show the messages in #errors -->
+                    <div id="errorsContainer" class="form-group row">
+                        <div class="col-sm-offset-2 col-sm-5">
+                            <ul id="errors"></ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input class="btn btn-primary" type="button" ng-click="myModalController.submit()"
+                       ng-value="myModalController.isNewProduct ? 'Cadastrar' : 'Editar'"
+                       ng-disabled="productForm.$invalid">
+                <button class="btn" type="button" ng-click="myModalController.cancel()">Cancelar</button>
+            </div>
+        </script>
+
+        <!-- Listagem de Produtos -->
+        <div class="container">
+            <div class="row">
+                <h3>Produtos</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="text-align: left">
+                    <a class="btn" ng-click="myController.newProduct()">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <a class="btn" ng-click="myController.editProduct()">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a class="btn" ng-click="myController.removeProduct()">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </div>
+                <div class="col-md-6" style="text-align: right">
+                    <a class="btn" ng-click="myController.collapseAll()">
+                        <span class="glyphicon glyphicon-chevron-up"></span>
+                    </a>
+                    <a class="btn" ng-click="myController.expandAll()">
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <input type="text" class="form-control" placeholder="Digite para Filtrar"
+                       ng-model="myController.searchContent" ng-change="myController.searchProducts()"/>
+            </div>
+            <div class="row">
+                <div ui-tree data-drag-enabled="false" id="productTree" class="tree angular-ui-tree">
+                    <ol ui-tree-nodes ng-model="myController.products" class="tree-nodes angular-ui-tree-nodes">
+                        <li ui-tree-node ng-repeat="product in myController.products"
+                            ng-include="'product-list.html'" ng-show="myController.isVisible(product)"
+                            class="tree-node angular-ui-tree-node" collapsed="true"
+                            expand-on-hover="false"></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- In production use:
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+        -->
+        <script src="lib/angular/angular.min.js"></script>
+        <script src="lib/angular-animate/angular-animate.min.js"></script>
+        <script src="lib/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+        <script src="lib/angular-ui-tree/dist/angular-ui-tree.min.js"></script>
+        <script src="environment.js"></script>
+        <script src="sweetalert.js"></script>
+        <script src="app.js"></script>
+        <script src="service.js"></script>
+        <script src="controller.js"></script>
+    </body>
+</html>

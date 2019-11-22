@@ -1,0 +1,21 @@
+version: '3'
+services:
+  treasy-tree-editor-mysql:
+    container_name: "treasy-tree-editor-mysql"
+    image: mysql/mysql-server:8.0.18
+    restart: always
+    environment:
+      - MYSQL_DATABASE=treasy
+      - MYSQL_USER=treasy
+      - MYSQL_PASSWORD=treasy
+      - MYSQL_ROOT_PASSWORD=treasy
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+    networks:
+      - treasy-net
+
+networks:
+  treasy-net:
+    driver: bridge

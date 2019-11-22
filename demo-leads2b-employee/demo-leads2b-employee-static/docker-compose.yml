@@ -1,0 +1,16 @@
+version: '3'
+services:
+  leads2b-employee-static:
+    container_name: leads2b-employee-static
+    image: 'desiderati/leads2b-employee-static:latest'
+    restart: always
+    environment:
+      - API_URL=leads2b-employee-server:3000
+    ports:
+      - '8080:80'
+    networks:
+      - leads2b-employee-mongodb_leads2b-net
+  
+networks:
+  leads2b-employee-mongodb_leads2b-net:
+    external: true

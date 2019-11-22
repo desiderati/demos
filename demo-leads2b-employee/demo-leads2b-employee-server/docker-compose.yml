@@ -1,0 +1,16 @@
+version: '3'
+services:
+  leads2b-employee-server:
+    container_name: leads2b-employee-server
+    image: 'desiderati/leads2b-employee-server:latest'
+    restart: always
+    environment:
+      - DATABASE_URL=leads2b-employee-mongodb:27017
+    ports:
+      - '3000:3000'
+    networks:
+      - leads2b-employee-mongodb_leads2b-net
+
+networks:
+  leads2b-employee-mongodb_leads2b-net:
+    external: true

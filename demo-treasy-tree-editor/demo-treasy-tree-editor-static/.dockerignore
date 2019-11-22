@@ -1,0 +1,9 @@
+# IntelliJ IDEA
+.idea
+*.iml
+target
+
+# NodeJS
+node_config
+node_modules
+npm-debug.log

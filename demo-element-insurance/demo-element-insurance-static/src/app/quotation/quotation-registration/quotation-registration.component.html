@@ -1,0 +1,76 @@
+<!--
+  ~ Copyright (c) 2019 - Felipe Desiderati
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+  ~ associated documentation files (the "Software"), to deal in the Software without restriction,
+  ~ including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+  ~ and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+  ~ subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+  ~ LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+  ~ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+  ~ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  ~ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  -->
+<div class="card card-body bg-light lead">Quotation Registration Form</div>
+
+<form class="form-horizontal my-3" (ngSubmit)="submit()" #quotationRegistrationForm="ngForm">
+    <input type="hidden" [(ngModel)]="quotation.id" id="id" name="id"/>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label text-right" for="price">Product</label>
+        <div class="col-sm-5">
+            <select class="form-control" id="insuranceType" name="insuranceType" title="Insurance Product" required
+                    [(ngModel)]="quotation.insuranceType" (ngModelChange)="calculateQuotation()" #insuranceType="ngModel">
+                <option *ngFor="let insuranceTypeOpt of insuranceTypes" [ngValue]="insuranceTypeOpt">
+                    {{insuranceTypeOpt.product}} - {{insuranceTypeOpt.minCoverage | currency}} - {{insuranceTypeOpt.maxCoverage | currency}}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label text-right" for="price">Price</label>
+        <div class="input-group col-sm-5">
+            <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </div>
+            <input class="form-control" type="text" id="price" name="price" title="Price" required
+                   [(ngModel)]="quotation.price" (ngModelChange)="calculateQuotation()" #price="ngModel"
+                   mask="separator.0" thousandSeparator="," maxlength="8"/>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label text-right" for="quotation">Quotation</label>
+        <div class="input-group col-sm-5">
+            <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </div>
+            <input class="form-control" type="text" id="quotation" name="quotationValue" title="Quotation" required
+                   [(ngModel)]="quotation.value" #quotationValue="ngModel"  disabled
+                   mask="separator.2" thousandSeparator="," maxlength="8"/>
+        </div>
+    </div>
+
+    <!-- Show the messages in #errors -->
+    <div id="errorsContainer" class="form-group row">
+        <div class="col-sm-5 offset-sm-2">
+            <ul id="errors"></ul>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-5 offset-sm-2">
+            <input id="submitBtn" class="btn btn-primary" type="submit" value="{{!quotation.id ? 'Add' : 'Update'}}"
+                   [disabled]="!quotation.value">
+            <button class="btn" type="button" (click)="reset()"
+                    [disabled]="quotationRegistrationForm.form.pristine">Reset
+            </button>
+        </div>
+    </div>
+</form>

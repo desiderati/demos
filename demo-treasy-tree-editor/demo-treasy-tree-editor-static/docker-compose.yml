@@ -1,0 +1,10 @@
+version: '3'
+services:
+  treasy-tree-editor-static:
+    container_name: treasy-tree-editor-static
+    image: 'desiderati/treasy-tree-editor-static:latest'
+    restart: always
+    environment:
+      - API_URL=localhost:9090
+    ports:
+      - '8000:80'

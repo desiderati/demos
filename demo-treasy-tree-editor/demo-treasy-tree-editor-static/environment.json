@@ -1,0 +1,12 @@
+{
+  "dev": {
+    "$environmentConfig": {
+      "apiUrl": "http://localhost:9090/treasy-tree-editor"
+    }
+  },
+  "docker": {
+    "$environmentConfig": {
+      "apiUrl": "http://${API_URL}/treasy-tree-editor"
+    }
+  }
+}
