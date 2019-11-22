@@ -3,9 +3,24 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>br.tech.desiderati.common</groupId>
+        <artifactId>common-parent-static</artifactId>
+        <version>2.0.0-SNAPSHOT</version>
+        <relativePath>../../../commons/common-parent-static</relativePath>
+    </parent>
     <groupId>br.tech.desiderati.demo</groupId>
     <artifactId>demo-leads2b-employee-static</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
