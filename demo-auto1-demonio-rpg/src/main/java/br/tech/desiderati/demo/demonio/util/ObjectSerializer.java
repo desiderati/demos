@@ -28,7 +28,7 @@ public class ObjectSerializer {
 
     private static final Logger logger = LoggerFactory.getLogger(ObjectSerializer.class.getName());
 
-    private static final String DEFAULT_FILE = "./saved/demonio-rpg.ser";
+    private static final String DEFAULT_FILE = "./saved/auto1-demonio-rpg.ser";
 
     private ObjectSerializer() {
 
@@ -44,6 +44,7 @@ public class ObjectSerializer {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public static <T> T load() {
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(createNewFile()))) {
             return (T) objectInputStream.readObject();
@@ -59,7 +60,13 @@ public class ObjectSerializer {
             return file;
         }
 
-        file.getParentFile().mkdirs();
-        return file.createNewFile() ? file : null;
+        if (!file.getParentFile().mkdirs()) {
+            throw new IOException("Could not create parent directories for file: " + file.getName());
+        }
+
+        if (!file.createNewFile()) {
+            throw new IOException("Could not create file: " + file.getName());
+        }
+        return file;
     }
 }

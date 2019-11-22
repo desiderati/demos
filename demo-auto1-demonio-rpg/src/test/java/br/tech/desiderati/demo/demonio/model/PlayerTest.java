@@ -77,7 +77,6 @@ public class PlayerTest {
         player.decreaseMaxHitPoints(10);
         assertThat(player.getMaxHitPoints()).isEqualTo(previousMaxHitPoints - 10);
 
-        previousMaxHitPoints = player.getMaxHitPoints();
         player.decreaseMaxHitPoints(100);
         assertThat(player.getMaxHitPoints()).isEqualTo(Character.MIN_HIT_POINTS);
     }
@@ -114,7 +113,6 @@ public class PlayerTest {
         player.increaseDefenseFactor(1);
         assertThat(player.getDefenseFactor()).isEqualTo(previousDefenseFactor + 1);
 
-        previousDefenseFactor = player.getDefenseFactor();
         player.increaseDefenseFactor(100);
         assertThat(player.getDefenseFactor()).isEqualTo(Character.MAX_DEFENSE_FACTOR);
     }
@@ -133,16 +131,13 @@ public class PlayerTest {
         player.increaseCriticalHitChance(10);
         assertThat(player.getCriticalHitChance()).isEqualTo(previousCriticalHitChance + 10);
 
-        previousCriticalHitChance = player.getCriticalHitChance();
         player.increaseCriticalHitChance(100);
         assertThat(player.getCriticalHitChance()).isEqualTo(Character.MAX_CRITICAL_HIT_CHANCE);
     }
 
     @Test
     public void playerShouldThrowInvalidStateExceptionBecauseNullCharacterWhileAttacking() {
-        assertThatThrownBy(() -> {
-            player.attack(null);
-        }).hasMessage("Character can not be null.");
+        assertThatThrownBy(() -> player.attack(null)).hasMessage("Character can not be null.");
     }
 
     @Test

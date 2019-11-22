@@ -22,27 +22,22 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
+@SuppressWarnings("WeakerAccess")
 public class PlayerBuilderTest {
 
     @Test
     public void newPlayerShouldThrowInvalidStateExceptionBecauseNullOrEmptyName() {
-        assertThatThrownBy(() -> {
-            Player player =
-                (Player) Player.builder().build();
-        }).hasMessage("Name can not be null or empty.");
+        assertThatThrownBy(() -> Player.builder().build())
+            .hasMessage("Name can not be null or empty.");
 
-        assertThatThrownBy(() -> {
-            Player player =
-                (Player) Player.builder().name("").build();
-        }).hasMessage("Name can not be null or empty.");
+        assertThatThrownBy(() -> Player.builder().name("").build())
+            .hasMessage("Name can not be null or empty.");
     }
 
     @Test
     public void newPlayerShouldThrowInvalidStateExceptionBecauseNullCity() {
-        assertThatThrownBy(() -> {
-            Player player =
-                (Player) Player.builder().name("Felipe").build();
-        }).hasMessage("Current City can not be null.");
+        assertThatThrownBy(() -> Player.builder().name("Felipe").build())
+            .hasMessage("Current City can not be null.");
     }
 
     @Test

@@ -58,14 +58,13 @@ public final class MonsterGenerator {
         int newDefenseFactor = computeVariationValue( 50, 100, character.getDefenseFactor());
         int newCriticalHitChance = computeVariationValue( 10, 20, character.getCriticalHitChance());
 
-        Monster monster = (Monster) Monster.builder().name(name)
+        return (Monster) Monster.builder().name(name)
             .currentCity(character.getCurrentCity())
             .maxHitPoints(newMaxHitPoints)
             .maxDamage(newMaxDamage)
             .defenseFactor(newDefenseFactor)
             .criticalHitChance(newCriticalHitChance)
             .build();
-        return monster;
     }
 
     private int computeVariationValue(int minVariation, int maxVariation, int intValue) {

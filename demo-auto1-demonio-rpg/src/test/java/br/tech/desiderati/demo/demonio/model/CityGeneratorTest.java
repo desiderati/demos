@@ -22,10 +22,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class CityGeneratorTest {
+class CityGeneratorTest {
 
     @Test
-    public void newCityShouldBeCreateWithSuccess() {
+    void newCityShouldBeCreateWithSuccess() {
         City currentCity = CityGenerator.generateNewCity();
         assertThat(currentCity).isNotNull();
         assertThat(currentCity.getName()).isNotBlank();

@@ -23,7 +23,8 @@ package br.tech.desiderati.demo.demonio.view.util;
  */
 public interface Printer {
 
-    public enum Color {
+    @SuppressWarnings("unused")
+    enum Color {
 
         RESET("\u001B[0m"),
         BLACK("\u001B[30m"),
@@ -37,7 +38,7 @@ public interface Printer {
 
         private final String value;
 
-        private Color(String value) {
+        Color(String value) {
             this.value = value;
         }
 

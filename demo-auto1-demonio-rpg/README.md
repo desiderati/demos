@@ -4,7 +4,7 @@ Project that I used as example of how to implement a MVC Pattern using only the 
 
 ## Prerequisites
 
-* JDK 8
+* JDK 11
 * Apache Maven 3.6.0
 
 ## Goal

@@ -31,27 +31,27 @@ public class Hit {
         HitBuilder() {
         }
 
-        public HitBuilder attackingCharacter(Character attackingCharacter) {
+        HitBuilder attackingCharacter(Character attackingCharacter) {
             this.attackingCharacter = attackingCharacter;
             return this;
         }
 
-        public HitBuilder defendingCharacter(Character defendingCharacter) {
+        HitBuilder defendingCharacter(Character defendingCharacter) {
             this.defendingCharacter = defendingCharacter;
             return this;
         }
 
-        public HitBuilder isCritical(boolean isCritical) {
+        HitBuilder isCritical(boolean isCritical) {
             this.isCritical = isCritical;
             return this;
         }
 
-        public HitBuilder amount(int damageDealt) {
+        HitBuilder amount(int damageDealt) {
             this.damageDealt = damageDealt;
             return this;
         }
 
-        public Hit build() {
+        Hit build() {
             // It would be better if we could use Java Validation for this!!!
             if (attackingCharacter == null) {
                 throw new IllegalStateException("Attacking Character can not be null.");
@@ -81,7 +81,8 @@ public class Hit {
         this.damageDealt = damageDealt;
     }
 
-    public static HitBuilder builder() {
+    // Used only by Character!
+    static HitBuilder builder() {
         return new HitBuilder();
     }
 

@@ -40,6 +40,7 @@ public class MenuItem implements Comparable<MenuItem> {
         this.menuActionListener = menuActionListener;
     }
 
+    @SuppressWarnings("unused")
     public int getId() {
         return id;
     }
@@ -48,15 +49,16 @@ public class MenuItem implements Comparable<MenuItem> {
         return option;
     }
 
+    @SuppressWarnings("unused")
     public String getDescription() {
         return description;
     }
 
-    public void select() {
+    void select() {
         menuActionListener.onMenuAction(this);
     }
 
-    public void print() {
+    void print() {
         printer.print("\t" + Printer.Color.CYAN + option + Printer.Color.RESET + ": " + description);
     }
 
@@ -82,10 +84,6 @@ public class MenuItem implements Comparable<MenuItem> {
 
     @Override
     public int compareTo(MenuItem other) {
-        if (other == null) {
-            return -1;
-        }
-
         return id - other.id;
     }
 }

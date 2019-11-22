@@ -18,23 +18,24 @@
  */
 package br.tech.desiderati.demo.demonio.model;
 
+import br.tech.desiderati.demo.demonio.view.observer.Observable;
+
 import java.io.Serializable;
-import java.util.Observable;
 import java.util.concurrent.ThreadLocalRandom;
 
-public abstract class Character extends Observable implements Serializable {
+public abstract class Character extends Observable<Hit> implements Serializable {
 
-    public static final int MIN_HIT_POINTS = 50;
+    static final int MIN_HIT_POINTS = 50;
 
-    public static final int MIN_DAMAGE = 10;
+    static final int MIN_DAMAGE = 10;
 
-    public static final int MIN_DEFENSE_FACTOR = 1;
+    static final int MIN_DEFENSE_FACTOR = 1;
 
-    public static final int MAX_DEFENSE_FACTOR = 5;
+    static final int MAX_DEFENSE_FACTOR = 5;
 
-    public static final int MIN_CRITICAL_HIT_CHANCE = 5;
+    static final int MIN_CRITICAL_HIT_CHANCE = 5;
 
-    public static final int MAX_CRITICAL_HIT_CHANCE = 60;
+    static final int MAX_CRITICAL_HIT_CHANCE = 60;
 
     private static ThreadLocalRandom random = ThreadLocalRandom.current();
 
@@ -181,7 +182,7 @@ public abstract class Character extends Observable implements Serializable {
         return maxHitPoints;
     }
 
-    public void increaseMaxHitPoints(int value) {
+    void increaseMaxHitPoints(int value) {
         if (value < 0) {
             value = 0;
         }
@@ -189,7 +190,7 @@ public abstract class Character extends Observable implements Serializable {
         maxHitPoints += value;
     }
 
-    public void decreaseMaxHitPoints(int value) {
+    void decreaseMaxHitPoints(int value) {
         if (value < 0) {
             value = 0;
         }
@@ -200,19 +201,22 @@ public abstract class Character extends Observable implements Serializable {
         }
     }
 
+    @SuppressWarnings("WeakerAccess")
     public int getCurrentHitPoints() {
         return currentHitPoints;
     }
 
+    @SuppressWarnings("WeakerAccess")
     public int getMinDamage() {
         return minDamage;
     }
 
+    @SuppressWarnings("WeakerAccess")
     public int getMaxDamage() {
         return maxDamage;
     }
 
-    public void increaseMaxDamage(int value) {
+    void increaseMaxDamage(int value) {
         if (value < 0) {
             value = 0;
         }
@@ -221,11 +225,12 @@ public abstract class Character extends Observable implements Serializable {
         minDamage = maxDamage / 2;
     }
 
+    @SuppressWarnings("WeakerAccess")
     public int getDefenseFactor() {
         return defenseFactor;
     }
 
-    public void increaseDefenseFactor(int value) {
+    void increaseDefenseFactor(int value) {
         if (value < 0) {
             value = 0;
         }
@@ -236,11 +241,12 @@ public abstract class Character extends Observable implements Serializable {
         }
     }
 
+    @SuppressWarnings("WeakerAccess")
     public int getCriticalHitChance() {
         return criticalHitChance;
     }
 
-    public void increaseCriticalHitChance(int value) {
+    void increaseCriticalHitChance(int value) {
         if (value < 0) {
             value = 0;
         }

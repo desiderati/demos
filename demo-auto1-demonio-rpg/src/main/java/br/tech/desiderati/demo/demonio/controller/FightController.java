@@ -31,11 +31,11 @@ public class FightController extends AbstractController {
 
     private static final String MONSTER_STATICS_MSG = "You're fighting: \n\t%s";
 
-    private Player player = null;
-    private Monster monster = null;
-    private Controller nextController = null;
+    private Player player;
+    private Monster monster;
+    private Controller nextController;
 
-    public FightController(Controller nextController, Player player, Monster monster) {
+    FightController(Controller nextController, Player player, Monster monster) {
         super();
         this.nextController = nextController;
         this.player = player;
@@ -72,7 +72,6 @@ public class FightController extends AbstractController {
                 if (monster.countObservers() == 0) {
                     monster.addObserver(observer);
                 }
-
 
                 // I could have used the Hit class returned by the attack() method here and print the information.
                 // But I've decided to demonstrate how to update a View when the Model state changes.

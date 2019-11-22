@@ -23,27 +23,22 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+@SuppressWarnings("WeakerAccess")
 public class MonsterGeneratorTest {
 
     @Test
     public void newMonsterShouldThrowInvalidStateExceptionBecauseNullOrEmptyName() {
-        assertThatThrownBy(() -> {
-            Monster monster =
-                (Monster) MonsterGenerator.monster().generateNewMonster();
-        }).hasMessage("Name can not be null or empty.");
+        assertThatThrownBy(() -> MonsterGenerator.monster().generateNewMonster())
+            .hasMessage("Name can not be null or empty.");
 
-        assertThatThrownBy(() -> {
-            Monster monster =
-                (Monster) MonsterGenerator.monster().withName("").generateNewMonster();
-        }).hasMessage("Name can not be null or empty.");
+        assertThatThrownBy(() -> MonsterGenerator.monster().withName("").generateNewMonster())
+            .hasMessage("Name can not be null or empty.");
     }
 
     @Test
     public void newMonsterShouldThrowInvalidStateExceptionBecauseNullCharacter() {
-        assertThatThrownBy(() -> {
-            Monster monster =
-                (Monster) MonsterGenerator.monster().withName("Monster").generateNewMonster();
-        }).hasMessage("Character can not be null.");
+        assertThatThrownBy(() -> MonsterGenerator.monster().withName("Monster").generateNewMonster())
+            .hasMessage("Character can not be null.");
     }
 
     @Test
@@ -59,7 +54,7 @@ public class MonsterGeneratorTest {
                 .criticalHitChance(-1)
                 .build();
 
-        Monster monster = (Monster) MonsterGenerator.monster()
+        Monster monster = MonsterGenerator.monster()
             .withName("Monster")
             .basedOn(player)
             .generateNewMonster();
@@ -83,7 +78,7 @@ public class MonsterGeneratorTest {
                 .criticalHitChance(1000)
                 .build();
 
-        monster = (Monster) MonsterGenerator.monster()
+        monster = MonsterGenerator.monster()
             .withName("Monster")
             .basedOn(player)
             .generateNewMonster();

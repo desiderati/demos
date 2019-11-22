@@ -27,6 +27,6 @@ public interface MenuActionListener {
      * but instead, we're passing the source object.
      * Which is the {@link MenuItem} itself.
      */
-    public void onMenuAction(MenuItem menuItem);
+    void onMenuAction(MenuItem menuItem);
 
 }

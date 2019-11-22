@@ -52,13 +52,11 @@ public class Player extends Character {
         level++;
         if (level <= MAX_LEVEL) {
             int xp = (int) Math.log(level * 5.0f); // Log Factor = 5
-
             increaseMaxHitPoints(xp * 10);
             increaseMaxDamage(xp);
 
             boolean isEvenLevel = (level % 2 == 0);
             increaseCriticalHitChance(isEvenLevel? 1 : 0);
-
             increaseDefenseFactorEvery20Levels();
         }
         heal();

@@ -18,23 +18,8 @@
  */
 package br.tech.desiderati.demo.demonio.view.observer;
 
-import br.tech.desiderati.demo.demonio.view.util.Printer;
-import br.tech.desiderati.demo.demonio.view.util.PrinterManager;
-import br.tech.desiderati.demo.demonio.model.Hit;
+public interface Observer<T> {
 
-public class HitObserver implements Observer<Hit> {
+    void update(Observable observable, T args);
 
-    private Printer printer = PrinterManager.getPrinter();
-
-    @Override
-    public void update(Observable observable, Hit hit) {
-        if (hit.isCritical()) {
-            printer.printColored(Printer.Color.PURPLE,
-                "Woooow! " + hit.getAttackingCharacter().getName() + " striked a critical hit! (x2 Damage)");
-        }
-
-        printer.printColored(Printer.Color.PURPLE,
-            hit.getAttackingCharacter().getName() + " hit the " + hit.getDefendingCharacter().getName()
-                + " for " + hit.getDamageDealt() + " damage.");
-    }
 }

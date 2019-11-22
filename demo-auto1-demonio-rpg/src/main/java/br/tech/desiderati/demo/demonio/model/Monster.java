@@ -39,7 +39,8 @@ public class Monster extends Character {
         super(name, currentCity, maxHitPoints, maxDamage, defenseFactor, criticalHitChance);
     }
 
-    public static MonsterInnerBuilder builder() {
+    // To be constructed by the generator.
+    static MonsterInnerBuilder builder() {
         return new MonsterInnerBuilder();
     }
 }

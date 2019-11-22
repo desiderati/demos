@@ -29,8 +29,11 @@ import br.tech.desiderati.demo.demonio.view.action.MenuActionListener;
  */
 abstract class AbstractController implements Controller, MenuActionListener {
 
-    private Menu menu = null;
-    private StatusBar statusBar = null;
+    private Menu menu;
+    private StatusBar statusBar;
+
+    // FIXME I should have think in a better solution, this can lead to a StackOverflowException
+    //  if you play the game for so long!!!
     private Controller nextController = null;
 
     AbstractController() {
@@ -38,12 +41,8 @@ abstract class AbstractController implements Controller, MenuActionListener {
         this.statusBar = new StatusBar();
     }
 
-    public Menu getMenu() {
+    Menu getMenu() {
         return menu;
-    }
-
-    public StatusBar getStatusBar() {
-        return statusBar;
     }
 
     abstract Menu configureMenu();
@@ -56,6 +55,7 @@ abstract class AbstractController implements Controller, MenuActionListener {
         this.nextController.printMenu();
     }
 
+    @SuppressWarnings("unused")
     public Controller getNextController() {
         return nextController;
     }
@@ -65,7 +65,7 @@ abstract class AbstractController implements Controller, MenuActionListener {
         menu.print();
     }
 
-    public void printStatus(String status, Object... params) {
+    void printStatus(String status, Object... params) {
         statusBar.print(String.format(status, params));
     }
 }

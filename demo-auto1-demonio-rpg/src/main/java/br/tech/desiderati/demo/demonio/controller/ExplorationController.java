@@ -33,9 +33,9 @@ public class ExplorationController extends AbstractController {
 
     private static final String PLAYER_STATICS_MSG =  "Here is yours player stats: \n\t%s";
 
-    private Player player = null;
+    private Player player;
 
-    public ExplorationController(Player player) {
+    ExplorationController(Player player) {
         super();
         this.player = player;
     }
@@ -56,7 +56,7 @@ public class ExplorationController extends AbstractController {
     @Override
     public void printMenu() {
         // Before loading the controller we must update the information being printed.
-        String formattedDescription = null;
+        String formattedDescription;
         City currentCity = player.getCurrentCity();
         if (currentCity.getMonster().isAlive()) {
             formattedDescription =

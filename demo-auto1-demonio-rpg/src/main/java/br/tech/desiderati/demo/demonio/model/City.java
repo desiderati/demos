@@ -33,6 +33,7 @@ public class City implements Serializable {
 
     private boolean monsterCanBeAvoided = false;
 
+    // To be constructed by the generator.
     City(String name) {
         this.name = name;
     }
@@ -41,6 +42,7 @@ public class City implements Serializable {
         return name;
     }
 
+    @SuppressWarnings("WeakerAccess")
     public City getNorthCityNeighbor() {
         if (northCityNeighbor == null) {
             northCityNeighbor = CityGenerator.generateNewCity();
@@ -49,6 +51,7 @@ public class City implements Serializable {
         return northCityNeighbor;
     }
 
+    @SuppressWarnings("WeakerAccess")
     public City getSouthCityNeighbor() {
         if (southCityNeighbor == null) {
             southCityNeighbor = CityGenerator.generateNewCity();
@@ -57,6 +60,7 @@ public class City implements Serializable {
         return southCityNeighbor;
     }
 
+    @SuppressWarnings("WeakerAccess")
     public City getEastCityNeighbor() {
         if (eastCityNeighbor == null) {
             eastCityNeighbor = CityGenerator.generateNewCity();
@@ -65,6 +69,7 @@ public class City implements Serializable {
         return eastCityNeighbor;
     }
 
+    @SuppressWarnings("WeakerAccess")
     public City getWestCityNeighbor() {
         if (westCityNeighbor == null) {
             westCityNeighbor = CityGenerator.generateNewCity();
