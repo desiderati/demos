@@ -25,7 +25,7 @@ import App from './App';
 
 Vue.use(Vuex);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 const store = new Vuex.Store({
     state: {
@@ -43,6 +43,7 @@ const store = new Vuex.Store({
     },
 });
 
+//noinspection JSUnusedGlobalSymbols
 new Vue({
     render: h => h(App),
     router,

@@ -18,7 +18,7 @@
  */
 'use strict';
 
-var myApp = angular.module('myApp', ['myEnvironment', 'ui.bootstrap', 'ui.tree', 'ui.sweetalert']);
+const myApp = angular.module('myApp', ['myEnvironment', 'ui.bootstrap', 'ui.tree', 'ui.sweetalert']);
 
 // Evitar que dispare um erro pois não foi tratato o Callback de erro da Modal!!!
 myApp.config(['$qProvider', function ($qProvider) {
@@ -27,6 +27,7 @@ myApp.config(['$qProvider', function ($qProvider) {
 }]);
 
 myApp.directive('onlyNumbers', function () {
+    // noinspection JSUnusedLocalSymbols
     return  {
         restrict: 'A',
         link: function (scope, elm, attrs, ctrl) {

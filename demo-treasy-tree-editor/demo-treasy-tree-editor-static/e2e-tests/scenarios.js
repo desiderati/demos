@@ -19,6 +19,8 @@
 'use strict';
 
 /* https://github.com/angular/protractor/blob/master/docs/toc.md */
+import {ProtractorBrowser as browser} from "protractor/built/browser";
+
 describe('my app', function () {
 
     it('should automatically redirect to /view1 when location hash/fragment is empty', function () {
