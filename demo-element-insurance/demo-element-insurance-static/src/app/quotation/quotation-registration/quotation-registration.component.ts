@@ -31,7 +31,6 @@ import {InsuranceType} from "../insurance-type";
     selector: 'app-quotation-registration',
     templateUrl: 'quotation-registration.component.html',
     styleUrls: ['./quotation-registration.component.scss'],
-
 })
 export class QuotationRegistrationComponent implements OnInit {
 

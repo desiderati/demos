@@ -25,7 +25,7 @@ export class Quotation {
     value: number;
     insuranceType: any;
 
-    constructor(id: number, price: number, value: number, insuranceType: any) {
+    constructor(id: number, price: number, value: number, insuranceType: InsuranceType) {
         this.id = id;
         this.price = price;
         this.value = value;

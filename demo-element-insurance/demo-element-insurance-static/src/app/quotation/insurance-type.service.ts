@@ -17,10 +17,10 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
-import {map, catchError} from 'rxjs/operators';
-import {Observable, throwError} from "rxjs";
+import {catchError, map} from 'rxjs/operators';
+import {Observable} from "rxjs";
 
 import {handleError} from './exception-handler.function';
 import {environment} from "../../environments/environment";

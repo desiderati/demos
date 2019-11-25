@@ -17,7 +17,6 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl} from '@angular/forms';
 
 import {Quotation} from '../quotation';
 import {QuotationService} from '../quotation.service';
@@ -33,8 +32,6 @@ export class QuotationListingComponent implements OnInit {
     @Output() quotationRemoveEvent = new EventEmitter<Quotation>();
 
     quotations: Quotation[];
-
-    filterByQuotationnameInput = new FormControl('');
 
     constructor(private quotationService: QuotationService) {
     }

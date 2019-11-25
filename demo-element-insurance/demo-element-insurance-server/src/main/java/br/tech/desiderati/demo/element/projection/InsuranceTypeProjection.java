@@ -22,6 +22,7 @@ import br.tech.desiderati.demo.element.domain.InsuranceType;
 import br.tech.desiderati.demo.element.domain.Quotation;
 import org.springframework.data.rest.core.config.Projection;
 
+@SuppressWarnings("unused")
 @Projection(name = "withInsuranceType", types = {Quotation.class})
 public interface InsuranceTypeProjection {
 
