@@ -21,7 +21,7 @@ package br.tech.desiderati.demo.treasy;
 import br.tech.desiderati.common.configuration.annotation.CustomSpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
-@CustomSpringBootApplication(componentScan = {"br.tech.desiderati.demo.treasy", "br.tech.desiderati.common"})
+@CustomSpringBootApplication
 public class WebApplication {
 
     private static final String EXTERNAL_PROPERTIES = "/opt/desiderati-java-app/config/treasy/tree-editor-server.properties";

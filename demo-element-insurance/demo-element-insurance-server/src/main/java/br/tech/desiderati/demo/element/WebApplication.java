@@ -21,7 +21,7 @@ package br.tech.desiderati.demo.element;
 import br.tech.desiderati.common.configuration.annotation.CustomSpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
-@CustomSpringBootApplication(componentScan = {"br.tech.desiderati.demo.element", "br.tech.desiderati.common"})
+@CustomSpringBootApplication
 public class WebApplication {
 
     public static void main(String[] args) {
