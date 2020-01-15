@@ -34,7 +34,7 @@ import javax.validation.constraints.NotNull;
 @EqualsAndHashCode(of = "id")
 @ToString
 @Entity
-public class InsuranceType implements Identity {
+public class InsuranceType implements Identity<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
