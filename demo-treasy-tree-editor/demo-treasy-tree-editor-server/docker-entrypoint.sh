@@ -11,7 +11,7 @@ fi
 
 if [[ ${ENABLE_DEBUG} = true ]]; then
   echo "Enabling Debug Mode on Port: 8090"
-  JAVA_OPTS="$JAVA_OPTS -Xdebug -Xrunjdwp:transport=dt_socket,address=8090,server=y,suspend=n"
+  JAVA_OPTS="$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8090"
 fi
 
 export JAVA_OPTS="$JAVA_OPTS -Xms$JAVA_XMS -Xmx$JAVA_XMX -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m

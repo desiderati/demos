@@ -4,7 +4,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-    <changeSet author="desiderati (generated)" id="1574306390439-1">
+    <changeSet author="Felipe Desiderati" id="1574306390439-1">
         <createTable tableName="app_product">
             <column name="id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="app_product_pk"/>
@@ -17,7 +17,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet author="desiderati (generated)" id="1574306390439-2">
+    <changeSet author="Felipe Desiderati" id="1574306390439-2">
         <addForeignKeyConstraint baseColumnNames="parent_id" baseTableName="app_product"
                                  constraintName="fk_app_product_parent_id" deferrable="false" initiallyDeferred="false"
                                  referencedColumnNames="id" referencedTableName="app_product" validate="true"/>

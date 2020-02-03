@@ -42,7 +42,7 @@ or
 ```
 $ id -u ${USER}
 1000
-$ docker run -it -p 9090:9090 --rm -e LOCAL_USER_ID=1000 -e SPRING_APPLICATION_JSON='{"spring.datasource.url":"jdbc:mysql://<YOUR_IP_ADDRESS>:3306/treasy"}' desiderati/treasy-tree-editor-server:latest 
+$ docker run -it -p 9090:9090 --rm -e LOCAL_USER_ID=1000 -e SPRING_APPLICATION_JSON='{"spring.datasource.url":"jdbc:mysql://172.17.0.1:3306/treasy"}' desiderati/treasy-tree-editor-server:latest 
 ```
 
 ## C) Building the project 
