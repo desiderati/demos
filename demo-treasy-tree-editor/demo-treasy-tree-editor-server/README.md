@@ -29,13 +29,6 @@ $ java -Xms256m -Xmx512m -jar target/demo-treasy-tree-editor-server-1.0.0-SNAPSH
 
 ## B) Running the project using Docker Image
 ```
-$ id -u ${USER}
-
-$ docker run -it -p 9090:9090 --rm -e LOCAL_USER_ID={id} -e SPRING_APPLICATION_JSON='{"spring.datasource.url":"jdbc:mysql://<YOUR_IP_ADDRESS>:3306/treasy"}' desiderati/treasy-tree-editor-server:latest 
-```
-
-### Example
-```
 docker-compose up -d && docker-compose logs -f
 ```
 or
