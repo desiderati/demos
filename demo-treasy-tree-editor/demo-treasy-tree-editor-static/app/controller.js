@@ -37,7 +37,7 @@ myApp.controller('myController', ['myService', '$scope', '$log', '$uibModal',
 
         $ctrl.openModalProductNotSelected = function () {
             swal.fire({type: 'error', title: 'Nenhum produto foi selecionado!!!'});
-        }
+        };
 
         $ctrl.newProduct = function () {
             if ($ctrl.selectedProduct == null && $ctrl.products.length !== 0) {
@@ -104,6 +104,7 @@ myApp.controller('myController', ['myService', '$scope', '$log', '$uibModal',
             if ($ctrl.selectedProduct == null) {
                 $ctrl.openModalProductNotSelected();
             } else {
+                // noinspection JSUnusedLocalSymbols
                 myService.deleteProduct($ctrl.selectedProduct.$modelValue.id).then(
                     function (response) {
                         $ctrl.selectedProduct.remove();
@@ -130,7 +131,7 @@ myApp.controller('myController', ['myService', '$scope', '$log', '$uibModal',
 
         $ctrl.searchProducts = function () {
             // Do nothing!!!
-        }
+        };
 
         $ctrl.toggle = function (product) {
             product.toggle();
@@ -148,10 +149,10 @@ myApp.controller('myController', ['myService', '$scope', '$log', '$uibModal',
         };
 
         $ctrl.isVisible = function (product) {
-            var isVisible = null;
+            let isVisible = null;
             if (!!$ctrl.searchContent) {
                 if (!!product.children) {
-                    for (var i = 0; i < product.children.length; i++) {
+                    for (let i = 0; i < product.children.length; i++) {
                         if ($ctrl.isVisible(product.children[i])) {
                             isVisible = true;
                             break;
@@ -177,25 +178,28 @@ myApp.controller('myController', ['myService', '$scope', '$log', '$uibModal',
                 && $ctrl.selectedProduct.$modelValue.id === product.id;
         };
 
+        /**
+         * @return {boolean}
+         */
         $ctrl.IsChildSelected = function(product, isChild) {
             if (!!product.children) {
-                for (var i = 0; i < product.children.length; i++) {
+                for (let i = 0; i < product.children.length; i++) {
                     if ($ctrl.IsChildSelected(product.children[i], true)) {
                         return true;
                     }
                 }
             }
             return isChild && $ctrl.isSelected(product);
-        }
+        };
 
         $ctrl.clearProductSelection = function () {
             $ctrl.selectedProduct = null;
         };
 
         $ctrl.renderProductTooltip = function (product) {
-            var noteTooltip = !!product.note ? ", Observação: " + product.note : "";
+            const noteTooltip = !!product.note ? ", Observação: " + product.note : "";
             return "Código: " + product.id + ", Descriçãao: " + product.description + noteTooltip;
-        }
+        };
 
         $ctrl.clearProductSelection();
         $ctrl.fetchAllProducts();
@@ -205,7 +209,7 @@ myApp.controller('myModalController',
     ['myService', '$scope', '$log', '$uibModalInstance', 'selectedProduct', 'isNewProduct',
         function (myService, $scope, $log, $uibModalInstance, selectedProduct, isNewProduct) {
 
-            var $ctrl = this;
+            const $ctrl = this;
             $ctrl.isNewProduct = isNewProduct;
             if ($ctrl.isNewProduct) {
                 if (!!selectedProduct) {
@@ -293,9 +297,9 @@ myApp.controller('myModalController',
                 $ctrl.clearErrorMessages();
                 if ($ctrl.isNewProduct) {
                     $log.info('Saving new Product', $ctrl.product);
-                    $ctrl.createProduct($ctrl.product)
+                    $ctrl.createProduct($ctrl.product);
                 } else {
-                    $ctrl.updateProduct($ctrl.product, $ctrl.product.id)
+                    $ctrl.updateProduct($ctrl.product, $ctrl.product.id);
                     $log.info('Product updated with id: ', $ctrl.product.id);
                 }
             };

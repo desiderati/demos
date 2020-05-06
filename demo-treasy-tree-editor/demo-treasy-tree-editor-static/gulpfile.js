@@ -18,10 +18,11 @@
  */
 
 // Para que o Gulp.js funcione, é necessário instalar o cliente global (npm install -g gulp-cli)
-var gulp = require('gulp'),
+const gulp = require('gulp'),
     ngConfig = require('gulp-ng-config');
 
-var environment = process.env.NODE_ENV || 'dev';
+// noinspection ES6ModulesDependencies
+const environment = process.env.NODE_ENV || 'dev';
 console.log('Build Project on Environment: ' + environment);
 
 gulp.task('config-environment', function () {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 - Felipe Desiderati
+ * Copyright (c) 2020 - Felipe Desiderati
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -18,7 +18,7 @@
  */
 package br.tech.desiderati.demo.element.domain;
 
-import br.tech.desiderati.common.data.jpa.Identity;
+import io.herd.common.data.jpa.Identity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -34,7 +34,7 @@ import javax.validation.constraints.NotNull;
 @EqualsAndHashCode(of = "id")
 @ToString
 @Entity
-public class InsuranceType implements Identity {
+public class InsuranceType implements Identity<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

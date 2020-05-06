@@ -31,7 +31,6 @@ import {InsuranceType} from "../insurance-type";
     selector: 'app-quotation-registration',
     templateUrl: 'quotation-registration.component.html',
     styleUrls: ['./quotation-registration.component.scss'],
-
 })
 export class QuotationRegistrationComponent implements OnInit {
 
@@ -48,19 +47,25 @@ export class QuotationRegistrationComponent implements OnInit {
 
     static clearErrorMessages() {
         $('#errorsContainer').hide();
+
+        // noinspection TypeScriptValidateJSTypes
         $('#errors').html('');
     }
 
     static addErrorMessage(message: string) {
-        $('#errorsContainer').show();
+        $('#errorsContainer').show().then(ignored => {});
+
+        // noinspection TypeScriptValidateJSTypes
         $('<li/>').html(message).appendTo('#errors');
     }
 
     static addValidationErrorMessages(messages: string[]) {
-        $('#errorsContainer').show();
+        $('#errorsContainer').show().then(ignored => {});
         for (let i = 0; i < messages.length; i++) {
             const input = messages[i].split(':')[0];
             const message = messages[i].split(':')[1];
+
+            // noinspection TypeScriptValidateJSTypes
             $('<li/>')
                 .wrapInner(
                     $('<a/>')

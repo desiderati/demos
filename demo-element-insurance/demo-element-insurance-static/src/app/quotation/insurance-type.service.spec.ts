@@ -18,7 +18,7 @@
  */
 import {TestBed} from '@angular/core/testing';
 
-import {InsuranceTypeService} from './insurance-type';
+import {InsuranceTypeService} from './insurance-type.service';
 
 describe('InsuranceTypeService', () => {
     beforeEach(() => TestBed.configureTestingModule({}));

@@ -52,6 +52,7 @@
         <script src="lib/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
         <!-- http://stackoverflow.com/a/21146439 -->
+        <!--suppress CssUnusedSymbol-->
         <style>
             [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
                 display: none !important;
@@ -85,6 +86,7 @@
             </div>
             <ol ui-tree-nodes ng-model="product.children" ng-class="{hidden: collapsed}"
                 class="tree-nodes angular-ui-tree-nodes">
+                <!--suppress HtmlUnknownAttribute-->
                 <li ui-tree-node ng-repeat="product in product.children" ng-include="'product-list.html'"
                     ng-show="myController.isVisible(product)" class="tree-node angular-ui-tree-node" collapsed="true"
                     expand-on-hover="false"></li>
@@ -202,12 +204,14 @@
                 </div>
             </div>
             <div class="row">
+                <!--suppress HtmlFormInputWithoutLabel-->
                 <input type="text" class="form-control" placeholder="Digite para Filtrar"
                        ng-model="myController.searchContent" ng-change="myController.searchProducts()"/>
             </div>
             <div class="row">
                 <div ui-tree data-drag-enabled="false" id="productTree" class="tree angular-ui-tree">
                     <ol ui-tree-nodes ng-model="myController.products" class="tree-nodes angular-ui-tree-nodes">
+                        <!--suppress HtmlUnknownAttribute-->
                         <li ui-tree-node ng-repeat="product in myController.products"
                             ng-include="'product-list.html'" ng-show="myController.isVisible(product)"
                             class="tree-node angular-ui-tree-node" collapsed="true"

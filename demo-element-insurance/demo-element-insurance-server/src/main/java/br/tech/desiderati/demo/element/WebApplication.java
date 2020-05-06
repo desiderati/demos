@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 - Felipe Desiderati
+ * Copyright (c) 2020 - Felipe Desiderati
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -18,10 +18,10 @@
  */
 package br.tech.desiderati.demo.element;
 
-import br.tech.desiderati.common.configuration.annotation.CustomSpringBootApplication;
+import io.herd.common.configuration.annotation.CustomSpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
-@CustomSpringBootApplication(componentScan = {"br.tech.desiderati.demo.element", "br.tech.desiderati.common"})
+@CustomSpringBootApplication
 public class WebApplication {
 
     public static void main(String[] args) {

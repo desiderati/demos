@@ -11,7 +11,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./data/db:/data/db
+      - .mongodb/data:/data
     networks:
       - leads2b-net
 
