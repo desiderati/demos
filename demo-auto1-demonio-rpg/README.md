@@ -44,5 +44,5 @@ Just execute `br.tech.desiderati.demo.demonio.controller.StartController` class.
 ### JAR
 
 ```
-java -jar target/demo-auto1-demonio-rpg-1.0.0-SNAPSHOT.jar
+java -jar target/demo-auto1-demonio-rpg-0.0.1-SNAPSHOT.jar
 ```

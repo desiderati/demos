@@ -31,7 +31,7 @@ RUN set -eux \
 
 # Copy application.
 RUN mkdir -p /opt/desiderati-java-app/
-COPY target/demo-treasy-tree-editor-server-1.0.0-SNAPSHOT-exec.war /opt/desiderati-java-app/app.jar
+COPY target/demo-treasy-tree-editor-server-0.0.1-SNAPSHOT-exec.war /opt/desiderati-java-app/app.jar
 
 ENV JAVA_XMS 256m
 ENV JAVA_XMX 512m

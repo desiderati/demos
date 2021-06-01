@@ -24,7 +24,7 @@ $ cd demos/demo-treasy-tree-editor/demo-treasy-tree-editor-server
 
 $ mvn clean install
 
-$ java -Xms256m -Xmx512m -jar target/demo-treasy-tree-editor-server-1.0.0-SNAPSHOT-exec.war
+$ java -Xms256m -Xmx512m -jar target/demo-treasy-tree-editor-server-0.0.1-SNAPSHOT-exec.war
 ```
 
 ## B) Running the project using Docker Image
