@@ -26,7 +26,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -36,9 +36,9 @@ import java.util.List;
 public class ProductService {
 
     // I could have used Lombok's @Delegate annotation, but I would rather follow this approach,
-    // because it's a small class and I also wanted demonstrate how to use the Javax Framework Validation
+    // because it's a small class and I also wanted to demonstrate how to use the Javax Framework Validation
     // at the Service Layer!!!
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
     @Autowired
     public ProductService(ProductRepository productRepository) {

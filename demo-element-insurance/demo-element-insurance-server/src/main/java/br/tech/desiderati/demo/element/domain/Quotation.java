@@ -19,11 +19,10 @@
 package br.tech.desiderati.demo.element.domain;
 
 import io.herd.common.data.jpa.Identity;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
-
-import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -32,7 +31,7 @@ import javax.validation.constraints.NotNull;
 @EqualsAndHashCode(of = "id")
 @ToString(exclude = {"insuranceType"})
 @Entity
-public class Quotation implements Identity {
+public class Quotation implements Identity<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -24,13 +24,18 @@
     <parent>
         <groupId>io.herd.common</groupId>
         <artifactId>common-parent-static</artifactId>
-        <version>2.3.21</version>
-        <relativePath>../../../commons/common-parent-static</relativePath>
+        <version>3.0.1.RELEASE</version>
+        <relativePath>../../../../personal/commons/common-parent-static</relativePath>
     </parent>
     <groupId>br.tech.desiderati.demo</groupId>
     <artifactId>demo-element-insurance-static</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+    <properties>
+        <node.version>v12.9.1</node.version>
+        <npm.version>6.10.2</npm.version>
+    </properties>
 
     <build>
         <plugins>

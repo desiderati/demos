@@ -24,8 +24,8 @@
     <parent>
         <groupId>io.herd.common</groupId>
         <artifactId>common-parent-info</artifactId>
-        <version>2.3.21</version>
-        <relativePath>../../commons/common-parent-info</relativePath>
+        <version>3.0.1.RELEASE</version>
+        <relativePath>../../../personal/commons/common-parent-info</relativePath>
     </parent>
     <groupId>br.tech.desiderati.demo</groupId>
     <artifactId>demo-element-insurance</artifactId>

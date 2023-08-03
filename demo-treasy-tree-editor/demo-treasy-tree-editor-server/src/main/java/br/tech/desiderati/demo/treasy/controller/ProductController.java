@@ -18,17 +18,17 @@
  */
 package br.tech.desiderati.demo.treasy.controller;
 
-import io.herd.common.exception.ConflictRestApiException;
-import io.herd.common.exception.NotFoundRestApiException;
 import br.tech.desiderati.demo.treasy.controller.dto.ProductDTO;
 import br.tech.desiderati.demo.treasy.domain.Product;
 import br.tech.desiderati.demo.treasy.service.ProductService;
+import io.herd.common.web.exception.ConflictRestApiException;
+import io.herd.common.web.exception.NotFoundRestApiException;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -40,7 +40,7 @@ public class ProductController {
 
     private final ProductService productService;
 
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
     @Autowired
     public ProductController(ProductService productService, ModelMapper modelMapper) {
