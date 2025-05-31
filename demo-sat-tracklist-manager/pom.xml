@@ -25,25 +25,18 @@
         <groupId>io.herd.common</groupId>
         <artifactId>common-parent-info</artifactId>
         <version>4.0.0.RC5</version>
-        <relativePath>../commons/common-parent-info</relativePath>
+        <relativePath>../../commons/common-parent-info</relativePath>
     </parent>
     <groupId>br.tech.desiderati.demos</groupId>
-    <artifactId>demos</artifactId>
+    <artifactId>demo-sat-tracklist-manager</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <scm>
-        <url>${github.server-url}/demos.git</url>
-        <connection>scm:git:${github.server-url}/demos.git</connection>
-        <developerConnection>scm:git:${github.server-url}/demos.git</developerConnection>
-    </scm>
-
     <modules>
-        <module>./demo-auto1-demonio-rpg</module>
-        <module>./demo-element-insurance</module>
-        <module>./demo-leads2b-employee</module>
-        <module>./demo-sat-tracklist-manager</module>
-        <module>./demo-treasy-tree-editor</module>
+        <module>./demo-sat-tracklist-manager-domain</module>
+        <module>./demo-sat-tracklist-manager-server</module>
+        <module>./demo-sat-tracklist-manager-static</module>
+        <module>./demo-sat-tracklist-manager-worker</module>
     </modules>
 
 </project>

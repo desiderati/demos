@@ -23,27 +23,31 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.herd.common</groupId>
-        <artifactId>common-parent-info</artifactId>
+        <artifactId>common-parent-static</artifactId>
         <version>4.0.0.RC5</version>
-        <relativePath>../commons/common-parent-info</relativePath>
+        <relativePath>../../../commons/common-parent-static</relativePath>
     </parent>
     <groupId>br.tech.desiderati.demos</groupId>
-    <artifactId>demos</artifactId>
+    <artifactId>demo-sat-tracklist-manager-static</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <scm>
-        <url>${github.server-url}/demos.git</url>
-        <connection>scm:git:${github.server-url}/demos.git</connection>
-        <developerConnection>scm:git:${github.server-url}/demos.git</developerConnection>
-    </scm>
+    <properties>
+        <node.version>v22.16.0</node.version>
+        <npm.version>10.9.2</npm.version>
+    </properties>
 
-    <modules>
-        <module>./demo-auto1-demonio-rpg</module>
-        <module>./demo-element-insurance</module>
-        <module>./demo-leads2b-employee</module>
-        <module>./demo-sat-tracklist-manager</module>
-        <module>./demo-treasy-tree-editor</module>
-    </modules>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

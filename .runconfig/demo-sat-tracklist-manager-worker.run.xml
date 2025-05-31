@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="demo-sat-tracklist-manager-worker" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="demo-sat-tracklist-manager-worker" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="demo.sat.tracklist_manager.Application" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
