@@ -22,7 +22,7 @@ import demo.sat.tracklist_manager.controller.dto.TrackDTO;
 import demo.sat.tracklist_manager.controller.mapper.TrackMapper;
 import demo.sat.tracklist_manager.domain.Track;
 import demo.sat.tracklist_manager.service.TrackService;
-import io.herd.common.jms.AsyncMessagePublisher;
+import dev.springbloom.jms.AsyncMessagePublisher;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;

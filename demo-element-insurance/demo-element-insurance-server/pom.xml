@@ -22,11 +22,11 @@
 
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>io.herd.common</groupId>
-        <artifactId>common-starter-web</artifactId>
-        <version>3.0.1.RELEASE</version>
+        <groupId>dev.springbloom</groupId>
+        <artifactId>springbloom-starter-web</artifactId>
+        <version>4.0.0.RC6</version>
         <!--suppress MavenModelInspection-->
-        <relativePath>../../../commons/common-starter-web</relativePath>
+        <relativePath>../../../springbloom/springbloom-starter-web</relativePath>
     </parent>
     <groupId>br.tech.desiderati.demo</groupId>
     <artifactId>demo-element-insurance-server</artifactId>
@@ -34,8 +34,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.herd.common</groupId>
-            <artifactId>common-data-jpa</artifactId>
+            <groupId>dev.springbloom</groupId>
+            <artifactId>springbloom-data-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

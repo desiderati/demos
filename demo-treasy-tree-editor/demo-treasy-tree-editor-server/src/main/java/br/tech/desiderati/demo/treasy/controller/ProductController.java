@@ -21,14 +21,14 @@ package br.tech.desiderati.demo.treasy.controller;
 import br.tech.desiderati.demo.treasy.controller.dto.ProductDTO;
 import br.tech.desiderati.demo.treasy.domain.Product;
 import br.tech.desiderati.demo.treasy.service.ProductService;
-import io.herd.common.web.exception.ConflictRestApiException;
-import io.herd.common.web.exception.NotFoundRestApiException;
+import dev.springbloom.web.rest.exception.ConflictRestApiException;
+import dev.springbloom.web.rest.exception.NotFoundRestApiException;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.validation.Valid;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -64,12 +64,12 @@ public class ProductController {
 
     @PostMapping
     public ProductDTO createProduct(@RequestBody @Valid ProductDTO productDTO) {
-        log.info("Creating Product with id " + productDTO.getId());
+        log.info("Creating Product with id {}", productDTO.getId());
 
         // We must validate otherwise it will update the product.
         Product currentProduct = productService.findById(Long.valueOf(productDTO.getId()));
         if (currentProduct != null) {
-            log.error("Unable to create. Product with id " + productDTO.getId() + " already exists");
+            log.error("Unable to create. Product with id {} already exists", productDTO.getId());
             throw new ConflictRestApiException("product_already_exists_exception", productDTO.getId());
         }
 
@@ -88,7 +88,7 @@ public class ProductController {
 
     @PutMapping(value = "/{id}")
     public ProductDTO updateProduct(@PathVariable("id") Long id, @RequestBody @Valid ProductDTO productDTO) {
-        log.info("Fetching & Updating Product with id " + id);
+        log.info("Fetching & Updating Product with id {}", id);
 
         // We must validate otherwise it will create a new product.
         Product currentProduct = productService.findById(id);
@@ -104,7 +104,7 @@ public class ProductController {
 
     @DeleteMapping(value = "/{id}")
     public void deleteProduct(@PathVariable("id") long id) {
-        log.info("Fetching & Deleting Product with id " + id);
+        log.info("Fetching & Deleting Product with id {}", id);
         productService.deleteProductById(id);
     }
 }

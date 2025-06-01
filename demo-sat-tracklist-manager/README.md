@@ -5,12 +5,12 @@
 
 # Dependências
 
-Antes de executar a aplicação, baixar o Commons:
+Antes de tudo, você deve instalar o projeto SpringBloom.dev em seu ambiente local:
 
 ```
-$ git clone https://github.com/desiderati/commons.git
+$ git clone https://github.com/desiderati/springbloom.git
 
-$ cd commons
+$ cd springbloom
 
 $ mvn clean install
 ```

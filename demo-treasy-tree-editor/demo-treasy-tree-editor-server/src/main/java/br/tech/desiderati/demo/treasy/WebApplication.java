@@ -18,10 +18,10 @@
  */
 package br.tech.desiderati.demo.treasy;
 
-import io.herd.common.configuration.annotation.CustomSpringBootApplication;
+import dev.springbloom.core.configuration.annotation.CustomSpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
-@CustomSpringBootApplication(componentScan = {"io.herd.common", "br.tech.desiderati.demo.treasy"})
+@CustomSpringBootApplication(componentScan = {"dev.springbloom", "br.tech.desiderati.demo.treasy"})
 public class WebApplication {
 
     public static void main(String[] args) {

@@ -18,7 +18,7 @@
  */
 package br.tech.desiderati.demo.element;
 
-import io.herd.common.configuration.annotation.CustomSpringBootApplication;
+import dev.springbloom.core.configuration.annotation.CustomSpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @CustomSpringBootApplication

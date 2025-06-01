@@ -22,8 +22,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import demo.sat.tracklist_manager.domain.Track;
 import demo.sat.tracklist_manager.service.TrackService;
-import io.herd.common.jms.AsyncMessagePublisher;
-import io.herd.common.test.annotation.AutoConfigureCommonWeb;
+import dev.springbloom.jms.AsyncMessagePublisher;
+import dev.springbloom.test.annotation.AutoConfigureSpringBloomWeb;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -40,7 +40,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest // Spring test slicing.
-@AutoConfigureCommonWeb // This will prefix all controllers with the API's base path.
+@AutoConfigureSpringBloomWeb // This will prefix all controllers with the API's base path.
 class TrackControllerTest {
 
     @Autowired

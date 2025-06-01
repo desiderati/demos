@@ -20,7 +20,7 @@ package demo.sat.tracklist_manager.service;
 
 import demo.sat.tracklist_manager.domain.Track;
 import demo.sat.tracklist_manager.repository.TrackRepository;
-import io.herd.common.exception.ResourceNotFoundApplicationException;
+import dev.springbloom.core.exception.ResourceNotFoundApplicationException;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

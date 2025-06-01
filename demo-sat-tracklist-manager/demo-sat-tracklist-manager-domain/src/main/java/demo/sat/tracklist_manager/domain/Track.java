@@ -18,8 +18,8 @@
  */
 package demo.sat.tracklist_manager.domain;
 
-import io.herd.common.data.jpa.AbstractPersistableIdentity;
-import io.herd.common.jms.AsyncMessage;
+import dev.springbloom.data.jpa.AbstractPersistableIdentity;
+import dev.springbloom.jms.AsyncMessage;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

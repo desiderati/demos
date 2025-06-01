@@ -9,13 +9,14 @@ Sample project to demonstrate how to use Spring Data Rest to deal with a CRUD so
 * NPM v6.10.2
 * Apache Maven 3.6.0
 
-## Dependencies 
+## Dependencies
 
-Before everything, you must install the Commons Project in your local environment:
+Before everything, you must install the SpringBloom.dev Project in your local environment:
+
 ```
-$ git clone https://github.com/desiderati/commons.git
+$ git clone https://github.com/desiderati/springbloom.git
 
-$ cd commons
+$ cd springbloom
 
 $ mvn clean install
 ```

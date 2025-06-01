@@ -18,7 +18,7 @@
  */
 package br.tech.desiderati.demo.element.domain;
 
-import io.herd.common.data.jpa.Identity;
+import dev.springbloom.data.jpa.Identity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
