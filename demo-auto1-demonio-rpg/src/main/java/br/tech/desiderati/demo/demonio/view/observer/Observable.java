@@ -26,7 +26,7 @@ public class Observable<T> {
 
     private boolean changed = false;
 
-    private List<Observer<T>> observers = new ArrayList<>();
+    private final List<Observer<T>> observers = new ArrayList<>();
 
     public synchronized void addObserver(Observer<T> observer) {
         if (observer == null) {

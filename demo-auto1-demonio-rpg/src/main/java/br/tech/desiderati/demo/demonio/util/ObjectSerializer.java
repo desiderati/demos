@@ -28,7 +28,7 @@ public class ObjectSerializer {
 
     private static final Logger logger = LoggerFactory.getLogger(ObjectSerializer.class.getName());
 
-    private static final String DEFAULT_FILE = "./saved/auto1-demonio-rpg.ser";
+    private static final String DEFAULT_FILE = "./.saved/auto1-demonio-rpg.ser";
 
     private ObjectSerializer() {
 
@@ -39,7 +39,7 @@ public class ObjectSerializer {
             objectOutputStream.writeObject(object);
             return true;
         } catch (Exception ex) {
-            logger.error("Unbale to serialize object: " + object, ex);
+            logger.error("Unbale to serialize object: {}", object, ex);
             return false;
         }
     }

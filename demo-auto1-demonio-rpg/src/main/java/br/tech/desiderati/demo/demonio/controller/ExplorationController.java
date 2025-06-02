@@ -33,7 +33,7 @@ public class ExplorationController extends AbstractController {
 
     private static final String PLAYER_STATICS_MSG =  "Here is yours player stats: \n\t%s";
 
-    private Player player;
+    private final Player player;
 
     ExplorationController(Player player) {
         super();
@@ -55,7 +55,7 @@ public class ExplorationController extends AbstractController {
 
     @Override
     public void printMenu() {
-        // Before loading the controller we must update the information being printed.
+        // Before loading the controller, we must update the information being printed.
         String formattedDescription;
         City currentCity = player.getCurrentCity();
         if (currentCity.getMonster().isAlive()) {
@@ -77,19 +77,19 @@ public class ExplorationController extends AbstractController {
     public void onMenuAction(MenuItem menuItem) {
         switch (menuItem.getOption()) {
             case 'W':
-                travelToCity(() -> player.goNorth());
+                travelToCity(player::goNorth);
                 break;
 
             case 'S':
-                travelToCity(() -> player.goSouth());
+                travelToCity(player::goSouth);
                 break;
 
             case 'D':
-                travelToCity(() -> player.goEast());
+                travelToCity(player::goEast);
                 break;
 
             case 'A':
-                travelToCity(() -> player.goWest());
+                travelToCity(player::goWest);
                 break;
 
             case 'F':
@@ -132,7 +132,7 @@ public class ExplorationController extends AbstractController {
     private void travelToCity(Supplier<City> currentCitySupplier) {
         if (player.getCurrentCity().hasMonsterAliveAndWaitingToFight()) {
             printStatus("You cannot travel to another city, as long as a monster lives in town " +
-                "and you didn't figth against him yet.");
+                "and you didn't fight against him yet.");
         } else {
             City currentCity = currentCitySupplier.get();
             addMonsterToCity(currentCity);

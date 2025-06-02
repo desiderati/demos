@@ -29,8 +29,8 @@ import br.tech.desiderati.demo.demonio.view.action.MenuActionListener;
  */
 abstract class AbstractController implements Controller, MenuActionListener {
 
-    private Menu menu;
-    private StatusBar statusBar;
+    private final Menu menu;
+    private final StatusBar statusBar;
 
     // FIXME I should have think in a better solution, this can lead to a StackOverflowException
     //  if you play the game for so long!!!

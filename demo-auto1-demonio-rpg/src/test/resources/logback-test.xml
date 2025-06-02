@@ -20,7 +20,7 @@
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!--
-            Resolvemos deixar como <layout> ao invés de <encoder> pois assim conseguimos ver as
+            Resolvemos deixar como <layout> ao invés de <encoder>, pois assim conseguimos ver as
             mensagens de configuração do LogBack durante o bootstrap da aplicação.
         -->
         <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->

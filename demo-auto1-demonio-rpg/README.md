@@ -1,6 +1,6 @@
 # auto1-demonio-rpg
 
-Project that I used as example of how to implement a MVC Pattern using only the Java language.
+Project that I used as an example of how to implement an MVC Pattern using only the Java language.
 
 ## Prerequisites
 
@@ -9,11 +9,11 @@ Project that I used as example of how to implement a MVC Pattern using only the 
 
 ## Goal
 
-Program a command line based Role Playing Game.
+Program a command-line-based Role Playing Game.
 
 ## Considerations
 
-It was created using the the MVC Pattern.
+It was created using the MVC Pattern.
 
 ![MVC](mvc.jpg)
 
@@ -23,8 +23,8 @@ It was created using the the MVC Pattern.
 
 * A map which shows the whole world, at least the part that is known.
 * Character customization.
-* Better level up/level down algorithms.
-* Other kind of monsters.
+* Better level-up / level-down algorithms.
+* Other kinds of monsters.
 * Better player statics.
 
 ##  How to Compile Source Code (Maven is required!)

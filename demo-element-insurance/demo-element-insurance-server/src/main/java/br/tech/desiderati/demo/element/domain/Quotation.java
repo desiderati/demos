@@ -48,7 +48,6 @@ public class Quotation implements Identity<Long> {
     private Double value;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "insurance_type_id")
     @NotNull(message = "{quotation.insuranceType.notNull}")
     private InsuranceType insuranceType;
 

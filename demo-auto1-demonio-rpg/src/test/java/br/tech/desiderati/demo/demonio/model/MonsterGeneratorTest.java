@@ -45,7 +45,7 @@ public class MonsterGeneratorTest {
     public void newMonsterShouldBeCreateWithSuccess() {
         City currentCity = CityGenerator.generateNewCity();
         Player player =
-            (Player) Player.builder()
+            Player.builder()
                 .name("Felipe")
                 .currentCity(currentCity)
                 .maxHitPoints(-1)
@@ -69,7 +69,7 @@ public class MonsterGeneratorTest {
         assertThat(monster.getCriticalHitChance()).isGreaterThanOrEqualTo(Character.MIN_CRITICAL_HIT_CHANCE);
 
         player =
-            (Player) Player.builder()
+            Player.builder()
                 .name("Felipe")
                 .currentCity(currentCity)
                 .maxHitPoints(1000)

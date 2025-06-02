@@ -35,7 +35,7 @@
     <dependencies>
         <dependency>
             <groupId>dev.springbloom</groupId>
-            <artifactId>springbloom-data-jpa</artifactId>
+            <artifactId>springbloom-web</artifactId>
         </dependency>
 
         <dependency>

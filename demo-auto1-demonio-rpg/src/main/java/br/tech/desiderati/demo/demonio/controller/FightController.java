@@ -31,9 +31,9 @@ public class FightController extends AbstractController {
 
     private static final String MONSTER_STATICS_MSG = "You're fighting: \n\t%s";
 
-    private Player player;
-    private Monster monster;
-    private Controller nextController;
+    private final Player player;
+    private final Monster monster;
+    private final Controller nextController;
 
     FightController(Controller nextController, Player player, Monster monster) {
         super();
@@ -51,7 +51,7 @@ public class FightController extends AbstractController {
 
     @Override
     public void printMenu() {
-        // Before loading the controller we must update the information being printed.
+        // Before loading the controller, we must update the information being printed.
         String formattedDescription = String.format(PLAYER_STATICS_MSG, player)
             + "\n" + String.format(MONSTER_STATICS_MSG, monster);
         getMenu().setDescription(formattedDescription);

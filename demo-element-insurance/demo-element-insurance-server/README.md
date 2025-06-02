@@ -8,6 +8,7 @@
 ## Dependencies
 
 Before everything, you must install the SpringBloom.dev Project in your local environment:
+
 ```
 $ git clone https://github.com/desiderati/springbloom.git
 
@@ -16,7 +17,8 @@ $ cd springbloom
 $ mvn clean install
 ```
 
-## A) Running the project from the scratch
+## A) Running the project from scratch
+
 ```
 $ git clone https://github.com/desiderati/demos.git
 
@@ -28,6 +30,7 @@ $ java -Xms256m -Xmx512m -jar target/demo-element-insurance-server-0.0.1-SNAPSHO
 ```
 
 ## D) Using the application
+
 ```
 http://localhost:9090/element-insurance/
 ```

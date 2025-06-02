@@ -23,16 +23,17 @@ import java.io.PrintStream;
 /**
  * I decided to use the PrinterManager as the only Printer available.
  * But as I've declared the Printer interface, it would be possible to implement different print strategies
- * in the future and the PrinterManager, instead of being a simple Singleton, it would be responsible
+ * in the future.
+ * The PrinterManager, instead of being a simple Singleton, it would be responsible
  * for loading each strategy available and to decide each one to use.
  */
 public class PrinterManager implements Printer {
 
-    // I've used early initialization just to avoid the double checked locking pattern.
+    // I've used early initialization just to avoid the double-checked locking pattern.
     // See more: https://www.baeldung.com/java-singleton-double-checked-locking
     private static final PrinterManager instance = new PrinterManager();
 
-    private PrintStream out;
+    private final PrintStream out;
 
     private PrinterManager() {
         out = System.out;

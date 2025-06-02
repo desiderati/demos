@@ -22,7 +22,7 @@ import java.io.Serializable;
 
 public class City implements Serializable {
 
-    private String name;
+    private final String name;
 
     private City northCityNeighbor = null;
     private City southCityNeighbor = null;

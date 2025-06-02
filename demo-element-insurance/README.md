@@ -21,7 +21,8 @@ $ cd springbloom
 $ mvn clean install
 ```
 
-## A) Running the project from the scratch
+## A) Running the project from scratch
 
+* [element-insurance-db](demo-element-insurance-db/README.md)
 * [element-insurance-server](demo-element-insurance-server/README.md)
 * [element-insurance-static](demo-element-insurance-static/README.md)

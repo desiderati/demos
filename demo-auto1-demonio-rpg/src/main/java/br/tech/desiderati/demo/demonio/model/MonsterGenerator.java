@@ -45,7 +45,7 @@ public final class MonsterGenerator {
 
     public Monster generateNewMonster() {
         // It would be better if we could use Java Validation for this!!!
-        if (name == null || name.length() == 0) { // And Apache Commons!!!
+        if (name == null || name.isEmpty()) { // And Apache Commons!!!
             throw new IllegalStateException("Name can not be null or empty.");
         }
 

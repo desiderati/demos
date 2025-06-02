@@ -35,7 +35,7 @@ const apiUrl = environment.apiUrl;
 })
 export class QuotationService {
 
-    static apiUrl = apiUrl + 'quotations/';
+    static apiUrl = apiUrl + 'quotations';
 
     constructor(private http: HttpClient) {
     }
@@ -47,28 +47,28 @@ export class QuotationService {
     }
 
     createQuotation(quotation: Quotation) {
-        // In order to add the @ManyToOne relation, Spring Data Rest requests that you send
+        // To add the @ManyToOne relation, Spring Data Rest requests that you send
         // the URL (HATEOAS) of the dependency!!!
         const innerQuotation = Object.assign({}, quotation);
-        innerQuotation.insuranceType = InsuranceTypeService.apiUrl + innerQuotation.insuranceType.id;
+        innerQuotation.insuranceType = InsuranceTypeService.apiUrl + '/' + innerQuotation.insuranceType.id;
 
         return this.http.post(QuotationService.apiUrl, innerQuotation).pipe(
             catchError(handleError('QuotationService', 'creating quotation')));
     }
 
     updateQuotation(quotation: Quotation, id: number) {
-        // In order to add the @ManyToOne relation, Spring Data Rest requests that you send
+        // To add the @ManyToOne relation, Spring Data Rest requests that you send
         // the URL (HATEOAS) of the dependency!!!
         const innerQuotation = Object.assign({}, quotation);
-        innerQuotation.insuranceType = InsuranceTypeService.apiUrl + innerQuotation.insuranceType.id;
+        innerQuotation.insuranceType = InsuranceTypeService.apiUrl + '/' + innerQuotation.insuranceType.id;
 
         // We must use PATCH, otherwise Spring Data Rest will not update the relationship.
-        return this.http.patch(QuotationService.apiUrl + id, innerQuotation).pipe(
+        return this.http.patch(QuotationService.apiUrl + '/' + id, innerQuotation).pipe(
             catchError(handleError('QuotationService', 'updating quotation')));
     }
 
     deleteQuotation(id: number) {
-        return this.http.delete(QuotationService.apiUrl + id).pipe(
+        return this.http.delete(QuotationService.apiUrl + '/' + id).pipe(
             catchError(handleError('QuotationService', 'deleting quotation')));
     }
 }

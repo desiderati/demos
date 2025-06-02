@@ -32,9 +32,9 @@ public class InputReaderManager implements InputReader {
 
     private static final InputReaderManager instance = new InputReaderManager();
 
-    private Scanner scanner;
+    private final Scanner scanner;
 
-    private Printer printer;
+    private final Printer printer;
 
     private InputReaderManager() {
         scanner = new Scanner(System.in);

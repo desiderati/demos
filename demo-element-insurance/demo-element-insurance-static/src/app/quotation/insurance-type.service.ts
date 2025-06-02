@@ -33,7 +33,7 @@ const apiUrl = environment.apiUrl;
 })
 export class InsuranceTypeService {
 
-    static apiUrl = apiUrl + 'insurancetypes/';
+    static apiUrl = apiUrl + 'insurancetypes';
 
     constructor(private http: HttpClient) {
     }

@@ -53,14 +53,14 @@ export class QuotationRegistrationComponent implements OnInit {
     }
 
     static addErrorMessage(message: string) {
-        $('#errorsContainer').show().then(ignored => {});
+        $('#errorsContainer').show().then(() => {});
 
         // noinspection TypeScriptValidateJSTypes
         $('<li/>').html(message).appendTo('#errors');
     }
 
     static addValidationErrorMessages(messages: string[]) {
-        $('#errorsContainer').show().then(ignored => {});
+        $('#errorsContainer').show().then(() => {});
         for (let i = 0; i < messages.length; i++) {
             const input = messages[i].split(':')[0];
             const message = messages[i].split(':')[1];

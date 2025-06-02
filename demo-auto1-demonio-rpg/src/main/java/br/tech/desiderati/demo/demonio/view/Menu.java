@@ -29,10 +29,10 @@ import java.util.TreeSet;
 public class Menu {
 
     private String description;
-    private Set<MenuItem> items;
+    private final Set<MenuItem> items;
 
-    private Printer printer = PrinterManager.getPrinter();
-    private InputReader reader = InputReaderManager.getInputReader();
+    private final Printer printer = PrinterManager.getPrinter();
+    private final InputReader reader = InputReaderManager.getInputReader();
 
     public Menu() {
         this("");

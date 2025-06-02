@@ -35,8 +35,8 @@ import java.util.List;
 @Transactional
 public class ProductService {
 
-    // I could have used Lombok's @Delegate annotation, but I would rather follow this approach,
-    // because it's a small class and I also wanted to demonstrate how to use the Javax Framework Validation
+    // I could have used Lombok's @Delegate annotation, but I would rather follow this approach
+    // because it's a small class, and I also wanted to demonstrate how to use the Javax Framework Validation
     // at the Service Layer!!!
     private final ProductRepository productRepository;
 

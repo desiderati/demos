@@ -17,7 +17,8 @@ $ cd springbloom
 $ mvn clean install
 ```
 
-## A) Running the project from the scratch
+## A) Running the project from scratch
+
 ```
 $ git clone https://github.com/desiderati/demos.git
 
@@ -29,10 +30,13 @@ $ java -Xms256m -Xmx512m -jar target/demo-treasy-tree-editor-server-0.0.1-SNAPSH
 ```
 
 ## B) Running the project using Docker Image
+
 ```
 docker-compose up -d && docker-compose logs -f
 ```
+
 or
+
 ```
 $ id -u ${USER}
 1000
@@ -40,6 +44,7 @@ $ docker run -it -p 9090:9090 --rm -e LOCAL_USER_ID=1000 -e SPRING_APPLICATION_J
 ```
 
 ## C) Building the project
+
 ```
 $ docker build -t desiderati/treasy-tree-editor-server:latest .
 
@@ -47,6 +52,7 @@ $ docker push desiderati/treasy-tree-editor-server:latest
 ```
 
 ## D) Using the application
+
 ```
 http://localhost:9090/treasy-tree-editor/swagger-ui.html
 ```

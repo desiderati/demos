@@ -22,7 +22,7 @@ public class Player extends Character {
 
     private static final int MAX_LEVEL = 100;
 
-    // If it was possible to use Lombok Project it would be cleaner.
+    // If it was possible to use Lombok Project, it would be cleaner.
     public static final class PlayerInnerBuilder extends CharacterInnerBuilder<Player> {
 
         private PlayerInnerBuilder() {

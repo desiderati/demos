@@ -20,7 +20,7 @@ package br.tech.desiderati.demo.demonio.model;
 
 public class Hit {
 
-    // If it was possible to use Lombok Project it would be cleaner.
+    // If it was possible to use Lombok Project, it would be cleaner.
     public static class HitBuilder {
 
         private Character attackingCharacter;
@@ -69,10 +69,10 @@ public class Hit {
         }
     }
 
-    private Character attackingCharacter;
-    private Character defendingCharacter;
-    private boolean isCritical;
-    private int damageDealt;
+    private final Character attackingCharacter;
+    private final Character defendingCharacter;
+    private final boolean isCritical;
+    private final int damageDealt;
 
     private Hit(Character attackingCharacter, Character defendingCharacter, boolean isCritical, int damageDealt) {
         this.attackingCharacter = attackingCharacter;

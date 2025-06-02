@@ -44,7 +44,7 @@ public class PlayerBuilderTest {
     public void newPlayerShouldBeCreatedEvenWithoutMaxHitPoints() {
         City currentCity = CityGenerator.generateNewCity();
         Player player =
-            (Player) Player.builder()
+            Player.builder()
                 .name("Felipe")
                 .currentCity(currentCity)
                 .build();
@@ -59,7 +59,7 @@ public class PlayerBuilderTest {
         assertThat(player.getCriticalHitChance()).isEqualTo(Character.MIN_CRITICAL_HIT_CHANCE);
 
         player =
-            (Player) Player.builder()
+            Player.builder()
                 .name("Felipe")
                 .currentCity(currentCity)
                 .maxHitPoints(Character.MIN_HIT_POINTS - 1)
@@ -79,7 +79,7 @@ public class PlayerBuilderTest {
     public void newPlayerShouldBeCreatedEvenWithoutMaxDamage() {
         City currentCity = CityGenerator.generateNewCity();
         Player player =
-            (Player) Player.builder()
+            Player.builder()
                 .name("Felipe")
                 .currentCity(currentCity)
                 .maxHitPoints(100)
@@ -95,7 +95,7 @@ public class PlayerBuilderTest {
         assertThat(player.getCriticalHitChance()).isEqualTo(Character.MIN_CRITICAL_HIT_CHANCE);
 
         player =
-            (Player) Player.builder()
+            Player.builder()
                 .name("Felipe")
                 .currentCity(currentCity)
                 .maxHitPoints(100)
@@ -116,7 +116,7 @@ public class PlayerBuilderTest {
     public void newPlayerShouldBeCreatedEvenWithoutDefenseFactor() {
         City currentCity = CityGenerator.generateNewCity();
         Player player =
-            (Player) Player.builder()
+            Player.builder()
                 .name("Felipe")
                 .currentCity(currentCity)
                 .maxHitPoints(100)
@@ -133,7 +133,7 @@ public class PlayerBuilderTest {
         assertThat(player.getCriticalHitChance()).isEqualTo(Character.MIN_CRITICAL_HIT_CHANCE);
 
         player =
-            (Player) Player.builder()
+            Player.builder()
                 .name("Felipe")
                 .currentCity(currentCity)
                 .maxHitPoints(100)
@@ -151,7 +151,7 @@ public class PlayerBuilderTest {
         assertThat(player.getCriticalHitChance()).isEqualTo(Character.MIN_CRITICAL_HIT_CHANCE);
 
         player =
-            (Player) Player.builder()
+            Player.builder()
                 .name("Felipe")
                 .currentCity(currentCity)
                 .maxHitPoints(100)
@@ -173,7 +173,7 @@ public class PlayerBuilderTest {
     public void newPlayerShouldBeCreatedEvenWithoutCriticalHit() {
         City currentCity = CityGenerator.generateNewCity();
         Player player =
-            (Player) Player.builder()
+            Player.builder()
                 .name("Felipe")
                 .currentCity(currentCity)
                 .maxHitPoints(100)
@@ -191,7 +191,7 @@ public class PlayerBuilderTest {
         assertThat(player.getCriticalHitChance()).isEqualTo(Character.MIN_CRITICAL_HIT_CHANCE);
 
         player =
-            (Player) Player.builder()
+            Player.builder()
                 .name("Felipe")
                 .currentCity(currentCity)
                 .maxHitPoints(100)
@@ -210,7 +210,7 @@ public class PlayerBuilderTest {
         assertThat(player.getCriticalHitChance()).isEqualTo(Character.MIN_CRITICAL_HIT_CHANCE);
 
         player =
-            (Player) Player.builder()
+            Player.builder()
                 .name("Felipe")
                 .currentCity(currentCity)
                 .maxHitPoints(100)
@@ -233,7 +233,7 @@ public class PlayerBuilderTest {
     public void newPlayerShouldBeCreatedWithSuccess() {
         City currentCity = CityGenerator.generateNewCity();
         Player player =
-            (Player) Player.builder()
+            Player.builder()
                 .name("Felipe")
                 .currentCity(currentCity)
                 .maxHitPoints(100)

@@ -21,11 +21,9 @@ package br.tech.desiderati.demo.element.repository;
 import br.tech.desiderati.demo.element.domain.InsuranceType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin
-@Repository
 @RepositoryRestResource(path = "insurancetypes")
 public interface InsuranceTypeRepository extends JpaRepository<InsuranceType, Long> {
 

@@ -35,8 +35,8 @@
         <td>{{quotation.value | currency}}</td>
         <td>{{quotation.insuranceType.product}}</td>
         <td class="float-right">
-            <button type="button" (click)="update(quotation.id)">Update</button>
-            <button type="button" (click)="remove(quotation.id)">Remove</button>
+            <button class="btn btn-primary" type="button" (click)="update(quotation.id)">Update</button>
+            <button class="btn btn-primary" type="button" (click)="remove(quotation.id)">Remove</button>
         </td>
     </tr>
     </tbody>

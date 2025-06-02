@@ -20,6 +20,6 @@ package br.tech.desiderati.demo.demonio.view.observer;
 
 public interface Observer<T> {
 
-    void update(Observable observable, T args);
+    void update(Observable<T> observable, T args);
 
 }

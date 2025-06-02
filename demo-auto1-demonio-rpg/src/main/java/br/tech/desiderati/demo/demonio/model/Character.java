@@ -39,7 +39,7 @@ public abstract class Character extends Observable<Hit> implements Serializable 
 
     private static ThreadLocalRandom random = ThreadLocalRandom.current();
 
-    // If it was possible to use Lombok Project it would be cleaner.
+    // If it was possible to use Lombok Project, it would be cleaner.
     public abstract static class CharacterInnerBuilder<T> {
 
         private String name;
@@ -52,39 +52,39 @@ public abstract class Character extends Observable<Hit> implements Serializable 
         CharacterInnerBuilder() {
         }
 
-        public CharacterInnerBuilder name(String name) {
+        public CharacterInnerBuilder<T> name(String name) {
             this.name = name;
             return this;
         }
 
-        public CharacterInnerBuilder currentCity(City currentCity) {
+        public CharacterInnerBuilder<T> currentCity(City currentCity) {
             this.currentCity = currentCity;
             return this;
         }
 
-        public CharacterInnerBuilder maxHitPoints(int maxHitPoints) {
+        public CharacterInnerBuilder<T> maxHitPoints(int maxHitPoints) {
             this.maxHitPoints = maxHitPoints;
             return this;
         }
 
-        public CharacterInnerBuilder maxDamage(int maxDamage) {
+        public CharacterInnerBuilder<T> maxDamage(int maxDamage) {
             this.maxDamage = maxDamage;
             return this;
         }
 
-        public CharacterInnerBuilder defenseFactor(int defenseFactor) {
+        public CharacterInnerBuilder<T> defenseFactor(int defenseFactor) {
             this.defenseFactor = defenseFactor;
             return this;
         }
 
-        public CharacterInnerBuilder criticalHitChance(int criticalHitChance) {
+        public CharacterInnerBuilder<T> criticalHitChance(int criticalHitChance) {
             this.criticalHitChance = criticalHitChance;
             return this;
         }
 
         public T build() {
             // It would be better if we could use Java Validation for this!!!
-            if (name == null || name.length() == 0) { // And Apache Commons!!!
+            if (name == null || name.isEmpty()) { // And Apache Commons!!!
                 throw new IllegalStateException("Name can not be null or empty.");
             }
 
@@ -123,7 +123,7 @@ public abstract class Character extends Observable<Hit> implements Serializable 
                            int criticalHitChance);
     }
 
-    private String name;
+    private final String name;
     private City currentCity;
 
     /**

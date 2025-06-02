@@ -22,7 +22,7 @@ myApp.factory('myService', ['$http', '$q', '$log', '$environmentConfig',
     function ($http, $q, $log, $environmentConfig) {
         return {
             fetchAllProducts: function () {
-                return $http.get($environmentConfig.apiUrl + '/api/v1/product/').then(
+                return $http.get($environmentConfig.apiUrl + '/api/v1/product').then(
                     function (response) {
                         return response.data;
                     },
@@ -33,7 +33,7 @@ myApp.factory('myService', ['$http', '$q', '$log', '$environmentConfig',
             },
 
             createProduct: function (product) {
-                return $http.post($environmentConfig.apiUrl + '/api/v1/product/', product).then(
+                return $http.post($environmentConfig.apiUrl + '/api/v1/product', product).then(
                     function (response) {
                         return response.data;
                     },

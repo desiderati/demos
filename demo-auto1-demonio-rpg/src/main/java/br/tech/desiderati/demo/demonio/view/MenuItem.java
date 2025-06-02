@@ -26,12 +26,12 @@ import java.util.Objects;
 
 public class MenuItem implements Comparable<MenuItem> {
 
-    private int id;
-    private char option;
-    private String description;
-    private MenuActionListener menuActionListener;
+    private final int id;
+    private final char option;
+    private final String description;
+    private final MenuActionListener menuActionListener;
 
-    private Printer printer = PrinterManager.getPrinter();
+    private final Printer printer = PrinterManager.getPrinter();
 
     public MenuItem(int id, char option, String description, MenuActionListener menuActionListener) {
         this.id = id;

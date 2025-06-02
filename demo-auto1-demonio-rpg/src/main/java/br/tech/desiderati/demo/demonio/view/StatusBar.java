@@ -23,7 +23,7 @@ import br.tech.desiderati.demo.demonio.view.util.PrinterManager;
 
 public class StatusBar {
 
-    private Printer printer = PrinterManager.getPrinter();
+    private final Printer printer = PrinterManager.getPrinter();
 
     public void print(String status) {
         printer.printColored(Printer.Color.YELLOW, status + "\n");

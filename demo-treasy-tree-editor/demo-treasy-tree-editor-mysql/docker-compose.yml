@@ -2,7 +2,7 @@ version: '3'
 services:
   treasy-tree-editor-mysql:
     container_name: "treasy-tree-editor-mysql"
-    image: mysql/mysql-server:8.0.18
+    image: mysql/mysql-server:8.0
     restart: always
     environment:
       - MYSQL_DATABASE=treasy
@@ -10,9 +10,10 @@ services:
       - MYSQL_PASSWORD=treasy
       - MYSQL_ROOT_PASSWORD=treasy
     ports:
-      - 3306:3306
+      - "3306:3306"
     volumes:
       - ./mysql/data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - treasy-net
 

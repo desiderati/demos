@@ -20,7 +20,7 @@ package br.tech.desiderati.demo.demonio.model;
 
 public class Monster extends Character {
 
-    // If it was possible to use Lombok Project it would be cleaner.
+    // If it was possible to use Lombok Project, it would be cleaner.
     public static final class MonsterInnerBuilder extends CharacterInnerBuilder<Monster> {
 
         private MonsterInnerBuilder() {

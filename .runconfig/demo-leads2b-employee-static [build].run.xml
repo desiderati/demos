@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="demo-leads2b-employee-static [build]" type="js.build_tools.npm" folderName="demos">
+    <package-json value="$PROJECT_DIR$/demos/demo-leads2b-employee/demo-leads2b-employee-static/package.json" />
+    <command value="run" />
+    <scripts>
+      <script value="build" />
+    </scripts>
+    <node-interpreter value="$USER_HOME$/.nvm/versions/node/v12.22.12/bin/node" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

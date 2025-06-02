@@ -25,7 +25,7 @@ public class ExitMenuActionListener implements MenuActionListener {
 
     private static final ExitMenuActionListener instance = new ExitMenuActionListener();
 
-    private StatusBar statusBar;
+    private final StatusBar statusBar;
 
     private ExitMenuActionListener() {
         this.statusBar = new StatusBar();

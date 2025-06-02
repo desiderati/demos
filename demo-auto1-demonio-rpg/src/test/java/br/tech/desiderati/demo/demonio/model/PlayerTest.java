@@ -46,7 +46,7 @@ public class PlayerTest {
         when(ThreadLocalRandom.current()).thenReturn(randomMock);
 
         City currentCity = CityGenerator.generateNewCity();
-        player = (Player) Player.builder()
+        player = Player.builder()
             .name("Felipe")
             .currentCity(currentCity)
             .maxHitPoints(100)
@@ -148,7 +148,7 @@ public class PlayerTest {
         // It will not be a critical hit!!!
         when(randomMock.nextInt(anyInt())).thenReturn(player.getCriticalHitChance() + 5);
 
-        Monster monster = (Monster) Monster.builder()
+        Monster monster = Monster.builder()
             .name("Monster")
             .currentCity(player.getCurrentCity())
             .maxHitPoints(100)
@@ -176,7 +176,7 @@ public class PlayerTest {
         // It will be a critical hit!!!
         when(randomMock.nextInt(anyInt())).thenReturn(player.getCriticalHitChance() - 5);
 
-        Monster monster = (Monster) Monster.builder()
+        Monster monster = Monster.builder()
             .name("Monster")
             .currentCity(player.getCurrentCity())
             .maxHitPoints(100)
@@ -204,7 +204,7 @@ public class PlayerTest {
         // It will not be a critical hit!!!
         when(randomMock.nextInt(anyInt())).thenReturn(player.getCriticalHitChance() + 5);
 
-        Monster monster = (Monster) Monster.builder()
+        Monster monster = Monster.builder()
             .name("Monster")
             .currentCity(player.getCurrentCity())
             .maxHitPoints(100)
@@ -232,7 +232,7 @@ public class PlayerTest {
         // It will be a critical hit!!!
         when(randomMock.nextInt(anyInt())).thenReturn(player.getCriticalHitChance() - 5);
 
-        Monster monster = (Monster) Monster.builder()
+        Monster monster = Monster.builder()
             .name("Monster")
             .currentCity(player.getCurrentCity())
             .maxHitPoints(100)
@@ -260,7 +260,7 @@ public class PlayerTest {
         // It will be a critical hit!!!
         when(randomMock.nextInt(anyInt())).thenReturn(player.getCriticalHitChance() - 5);
 
-        Monster monster = (Monster) Monster.builder()
+        Monster monster = Monster.builder()
             .name("Monster")
             .currentCity(player.getCurrentCity())
             .maxHitPoints(100)

@@ -76,7 +76,7 @@ public class ProductController {
         if (productDTO.getParentProduct() != null && productDTO.getParentProduct().getId() != null) {
             Product parentProduct = productService.findById(Long.valueOf(productDTO.getParentProduct().getId()));
             if (parentProduct == null) {
-                log.error("Unable to update. Product with id " + productDTO.getParentProduct().getId() + " not found");
+                log.error("Unable to update. Product with id {} not found", productDTO.getParentProduct().getId());
                 throw new NotFoundRestApiException("product_not_found_exception", productDTO.getParentProduct().getId());
             }
         }
@@ -93,7 +93,7 @@ public class ProductController {
         // We must validate otherwise it will create a new product.
         Product currentProduct = productService.findById(id);
         if (currentProduct == null) {
-            log.error("Unable to update. Product with id " + id + " not found");
+            log.error("Unable to update. Product with id {} not found", id);
             throw new NotFoundRestApiException("product_not_found_exception", id);
         }
 

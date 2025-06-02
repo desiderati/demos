@@ -9,7 +9,7 @@ services:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
     ports:
-      - 27017:27017
+      - "27017:27017"
     volumes:
       - .mongodb/data:/data
     networks:
@@ -24,7 +24,7 @@ services:
       - ME_CONFIG_MONGODB_SERVER=leads2b-employee-mongodb
       - ME_CONFIG_MONGODB_PORT=27017
     ports:
-      - 8081:8081
+      - "8081:8081"
     depends_on:
       - leads2b-employee-mongodb
     networks:
