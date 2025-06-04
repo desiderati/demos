@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 - Felipe Desiderati
+ * Copyright (c) 2025 - Felipe Desiderati
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -26,6 +26,15 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+/**
+ * Represents a type of insurance product in the system.
+ * <p>
+ * This entity stores information about different insurance products offered,
+ * including their coverage ranges and risk levels.
+ * Each insurance type can be associated with multiple quotations.
+ *
+ * @see Quotation
+ */
 @Getter
 @Setter
 @NoArgsConstructor
@@ -35,24 +44,43 @@ import lombok.*;
 @Entity
 public class InsuranceType implements Identity<Long> {
 
+    /**
+     * Unique identifier for the insurance type.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * The name of the insurance product.
+     * This field cannot be blank.
+     */
     @Column(nullable = false)
     @NotBlank(message = "{insuranceType.product.notBlank}")
     private String product;
 
+    /**
+     * The minimum coverage amount for this insurance type.
+     * Must be a non-negative value.
+     */
     @Column(nullable = false)
     @Min(value = 0, message = "{insuranceType.minCoverage.minValue}")
     @NotNull(message = "{insuranceType.minCoverage.notNull}")
     private Double minCoverage;
 
+    /**
+     * The maximum coverage amount for this insurance type.
+     * Must be a non-negative value and should be greater than or equal to minCoverage.
+     */
     @Column(nullable = false)
     @Min(value = 0, message = "{insuranceType.maxCoverage.minValue}")
     @NotNull(message = "{insuranceType.maxCoverage.notNull}")
     private Double maxCoverage;
 
+    /**
+     * The risk percentage associated with this insurance type.
+     * Must be between 0 and 100 (inclusive).
+     */
     @Column(nullable = false)
     @Min(value = 0, message = "{insuranceType.risk.minValue}")
     @Max(value = 100, message = "{insuranceType.risk.maxValue}")

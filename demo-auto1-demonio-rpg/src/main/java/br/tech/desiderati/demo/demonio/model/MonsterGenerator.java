@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 - Felipe Desiderati
+ * Copyright (c) 2025 - Felipe Desiderati
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -58,7 +58,7 @@ public final class MonsterGenerator {
         int newDefenseFactor = computeVariationValue( 50, 100, character.getDefenseFactor());
         int newCriticalHitChance = computeVariationValue( 10, 20, character.getCriticalHitChance());
 
-        return (Monster) Monster.builder().name(name)
+        return Monster.builder().name(name)
             .currentCity(character.getCurrentCity())
             .maxHitPoints(newMaxHitPoints)
             .maxDamage(newMaxDamage)

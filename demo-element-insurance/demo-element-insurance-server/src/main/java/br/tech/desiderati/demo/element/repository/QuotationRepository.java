@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 - Felipe Desiderati
+ * Copyright (c) 2025 - Felipe Desiderati
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -24,6 +24,27 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+/**
+ * Repository interface for managing {@link Quotation} entities.
+ * <p>
+ * This repository provides CRUD operations for Quotation entities and
+ * is automatically exposed as a REST resource at the path "/quotations".
+ * The @CrossOrigin annotation enables cross-origin requests, allowing the
+ * frontend application to access this API.
+ * <p>
+ * The repository uses the {@link InsuranceTypeProjection} as its excerpt projection,
+ * which means that when quotations are retrieved, they will include their associated
+ * insurance type information in the response.
+ * <p>
+ * Spring Data JPA automatically implements this interface at runtime, providing
+ * standard methods like findAll(), findById(), save(), delete(), etc.
+ * </p>
+ *
+ * @see Quotation
+ * @see InsuranceTypeProjection
+ * @see org.springframework.data.jpa.repository.JpaRepository
+ * @see org.springframework.data.rest.core.annotation.RepositoryRestResource
+ */
 @CrossOrigin
 @RepositoryRestResource(path = "quotations", excerptProjection = InsuranceTypeProjection.class)
 public interface QuotationRepository extends JpaRepository<Quotation, Long> {

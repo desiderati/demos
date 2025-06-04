@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 - Felipe Desiderati
+ * Copyright (c) 2025 - Felipe Desiderati
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -22,16 +22,54 @@ import br.tech.desiderati.demo.element.domain.InsuranceType;
 import br.tech.desiderati.demo.element.domain.Quotation;
 import org.springframework.data.rest.core.config.Projection;
 
+/**
+ * A Spring Data REST projection for {@link Quotation} entities that includes the associated {@link InsuranceType}.
+ * <p>
+ * This projection is used by the QuotationRepository to include the complete InsuranceType entity
+ * in the REST API responses when retrieving quotations.
+ * It defines which properties of the Quotation entity should be included in the response,
+ * along with the associated InsuranceType.
+ * <p>
+ * The projection is named "withInsuranceType" and can be requested explicitly in API calls
+ * using the projection parameter, e.g., /api/quotations?projection=withInsuranceType.
+ * It is also used as the default excerpt projection for the QuotationRepository.
+ *
+ * @see Quotation
+ * @see InsuranceType
+ * @see br.tech.desiderati.demo.element.repository.QuotationRepository
+ * @see org.springframework.data.rest.core.config.Projection
+ */
 @SuppressWarnings("unused")
 @Projection(name = "withInsuranceType", types = {Quotation.class})
 public interface InsuranceTypeProjection {
 
+    /**
+     * Gets the ID of the quotation.
+     *
+     * @return the quotation ID
+     */
     Long getId();
 
+    /**
+     * Gets the price of the quotation.
+     *
+     * @return the quotation price
+     */
     Double getPrice();
 
+    /**
+     * Gets the value (coverage amount) of the quotation.
+     *
+     * @return the quotation value
+     */
     Double getValue();
 
+    /**
+     * Gets the insurance type associated with the quotation.
+     * This method returns the complete InsuranceType entity, not just its ID.
+     *
+     * @return the associated insurance type
+     */
     InsuranceType getInsuranceType();
 
 }

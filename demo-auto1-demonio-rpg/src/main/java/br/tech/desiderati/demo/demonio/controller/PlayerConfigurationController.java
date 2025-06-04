@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 - Felipe Desiderati
+ * Copyright (c) 2025 - Felipe Desiderati
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -51,25 +51,23 @@ public class PlayerConfigurationController extends AbstractController {
         Player player = null;
         switch (menuItem.getOption()) {
             case 'W':
-                player = (Player)
-                    Player.builder().name("Warrior")
-                        .currentCity(city)
-                        .maxHitPoints(115)
-                        .maxDamage(30)
-                        .defenseFactor(1)
-                        .criticalHitChance(10)
-                        .build();
+                player = Player.builder().name("Warrior")
+                    .currentCity(city)
+                    .maxHitPoints(115)
+                    .maxDamage(30)
+                    .defenseFactor(1)
+                    .criticalHitChance(10)
+                    .build();
                 break;
 
             case 'K':
-                player = (Player)
-                    Player.builder().name("Knight")
-                        .currentCity(city)
-                        .maxHitPoints(105)
-                        .maxDamage(20)
-                        .defenseFactor(2)
-                        .criticalHitChance(20)
-                        .build();
+                player = Player.builder().name("Knight")
+                    .currentCity(city)
+                    .maxHitPoints(105)
+                    .maxDamage(20)
+                    .defenseFactor(2)
+                    .criticalHitChance(20)
+                    .build();
                 break;
 
             default:
