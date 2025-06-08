@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2021 - Felipe Desiderati
+  ~ Copyright (c) 2025 - Felipe Desiderati
   ~
   ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
   ~ associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -24,7 +24,7 @@
     <parent>
         <groupId>dev.springbloom</groupId>
         <artifactId>springbloom-parent-info</artifactId>
-        <version>4.0.0.RC6</version>
+        <version>4.0.0.RC7</version>
         <relativePath>../../springbloom/springbloom-parent-info</relativePath>
     </parent>
     <groupId>br.tech.desiderati.demo</groupId>

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 - Felipe Desiderati
+ * Copyright (c) 2025 - Felipe Desiderati
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -36,4 +36,4 @@ gulp.task('default', gulp.series('config-environment'));
 gulp.task('watch', function () {
     gulp.watch('./environment.json', gulp.series('config-environment'));
 });
- 
+
