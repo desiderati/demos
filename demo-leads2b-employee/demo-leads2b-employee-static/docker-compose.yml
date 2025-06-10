@@ -9,8 +9,8 @@ services:
     ports:
       - '8080:80'
     networks:
-      - leads2b-employee-mongodb_leads2b-net
-  
+      - demo-leads2b-employee-mongodb_leads2b-net
+
 networks:
-  leads2b-employee-mongodb_leads2b-net:
+  demo-leads2b-employee-mongodb_leads2b-net:
     external: true

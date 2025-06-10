@@ -21,13 +21,16 @@ package demo.sat.tracklist_manager.listener;
 import demo.sat.tracklist_manager.domain.Track;
 import demo.sat.tracklist_manager.service.TrackService;
 import dev.springbloom.core.exception.ApplicationException;
-import dev.springbloom.core.exception.IllegalArgumentApplicationException;
 import dev.springbloom.jms.AbstractAsyncMessageListener;
 import dev.springbloom.web.notification.client.NotificationClient;
 import jakarta.jms.Message;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
+
+import java.io.Serializable;
+import java.util.Locale;
 
 @Slf4j
 @Component
@@ -37,9 +40,16 @@ public class TrackMessageListener extends AbstractAsyncMessageListener<Track> {
 
     private final TrackService trackService;
 
-    public TrackMessageListener(NotificationClient notificationClient, TrackService trackService) {
+    private final MessageSource messageSource;
+
+    public TrackMessageListener(
+        NotificationClient notificationClient,
+        TrackService trackService,
+        MessageSource messageSource
+    ) {
         this.notificationClient = notificationClient;
         this.trackService = trackService;
+        this.messageSource = messageSource;
     }
 
     @Override
@@ -47,21 +57,9 @@ public class TrackMessageListener extends AbstractAsyncMessageListener<Track> {
     protected void receive(Track track) {
         // Simulating a long process of converting audio tracks to a long set of formats.
         Thread.sleep(30000);
-
-        // In this example, it's not possible to have tracks with duplicate names — even if they belong
-        // to different authors.
-
-        // This wouldn't be the case in a real-world application, where such a restriction wouldn’t make sense
-        // and would likely be handled differently.
-
-        // The main goal of this validation is simply to test whether the listener correctly notifies
-        // the front-end in case of an error.
-        if (trackService.findByName(track.getTrackName()).isEmpty()) {
-            trackService.saveTrack(track);
-            notificationClient.broadcastToAll("Track saved successfully.");
-        } else {
-            throw new IllegalArgumentApplicationException("Track already exists!");
-        }
+        track.setProcessed(true);
+        trackService.saveTrack(track);
+        notificationClient.broadcastToAll(getMessage("track_saved_successfully"));
     }
 
     @Override
@@ -71,6 +69,15 @@ public class TrackMessageListener extends AbstractAsyncMessageListener<Track> {
         ApplicationException applicationException
     ) {
         super.handleApplicationException(jmsMessage, message, applicationException);
-        notificationClient.broadcastToAll(applicationException.getMessage());
+        notificationClient.broadcastToAll(
+            getMessage(applicationException.getMessage(), applicationException.getArgs())
+        );
+    }
+
+    private String getMessage(String message, Serializable... args) {
+        var defaultMessage = "There was an error while processing a Track!";
+        return messageSource != null ? messageSource.getMessage(
+            message, args, defaultMessage, Locale.getDefault()
+        ) : defaultMessage;
     }
 }

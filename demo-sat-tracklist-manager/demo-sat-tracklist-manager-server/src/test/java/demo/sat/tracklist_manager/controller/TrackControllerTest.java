@@ -56,8 +56,8 @@ class TrackControllerTest {
     private AsyncMessagePublisher trackMessagePublisher;
 
     private final List<Track> tracks = List.of(
-        new Track("teste 1", "teste 1", 100),
-        new Track("teste 2", "teste 2", 200)
+        new Track("teste 1", "teste 1", 100, true),
+        new Track("teste 2", "teste 2", 200, true)
     );
 
     @BeforeEach

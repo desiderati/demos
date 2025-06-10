@@ -20,6 +20,7 @@ package demo.sat.tracklist_manager.service;
 
 import demo.sat.tracklist_manager.domain.Track;
 import demo.sat.tracklist_manager.repository.TrackRepository;
+import dev.springbloom.core.exception.IllegalArgumentApplicationException;
 import dev.springbloom.core.exception.ResourceNotFoundApplicationException;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @Validated
@@ -40,7 +42,20 @@ public class TrackService {
     }
 
     public void saveTrack(Track track) {
-        trackRepository.save(track);
+        // In this example, it's not possible to have tracks with duplicate names — even if they belong
+        // to different authors.
+
+        // This wouldn't be the case in a real-world application, where such a restriction wouldn’t make sense
+        // and would likely be handled differently.
+
+        // The main goal of this validation is simply to test whether the listener correctly notifies
+        // the front-end in case of an error.
+        List<Track> existingTracks = findByName(track.getTrackName());
+        if (existingTracks.isEmpty() || Objects.equals(existingTracks.getFirst().getId(), track.getId())) {
+            trackRepository.save(track);
+        } else {
+            throw new IllegalArgumentApplicationException("track_name_already_exists");
+        }
     }
 
     public void updateTrack(Track track) {

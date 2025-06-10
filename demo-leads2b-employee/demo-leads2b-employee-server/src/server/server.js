@@ -79,6 +79,7 @@ Employee.usernameWasAlreadyTaken(null, 'admin')
             jobTitle: 'System Administrator'
         });
 
+        // noinspection JSUnresolvedReference
         employee.save()
             .then(employee => {
                 console.log('Admin user created: ' + employee);

@@ -88,8 +88,11 @@ public class TrackController {
     public void createTrack(@RequestBody @Valid TrackDTO trackDTO) {
         log.info("Creating Track '{}'", trackDTO.getTrackName());
 
+        Track track = TrackMapper.INSTANCE.toTrack(trackDTO);
+        trackService.saveTrack(track);
+
         // Send the message to the queue.
-        trackMessagePublisher.publish(TrackMapper.INSTANCE.toTrack(trackDTO));
+        trackMessagePublisher.publish(track);
     }
 
     @PutMapping(value = "/{id}")

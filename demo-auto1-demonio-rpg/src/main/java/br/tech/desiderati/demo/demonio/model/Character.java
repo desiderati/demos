@@ -140,13 +140,13 @@ public abstract class Character extends Observable<Hit> implements Serializable 
     private int maxDamage;
 
     /**
-     * It damage dealt to this monster will be reduced by this defense factor.
+     * This defense factor will reduce its damage dealt to this monster.
      */
     private int defenseFactor;
 
     /**
      * Critical hits occur randomly when striking enemies. By default, each successful hit on an enemy
-     * has a x% chance of being a "critical hit", dealing approximately double the usual damage.
+     * has an x% chance of being a "critical hit", dealing approximately double the usual damage.
      */
     private int criticalHitChance;
 

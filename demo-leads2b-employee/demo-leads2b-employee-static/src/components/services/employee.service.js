@@ -40,7 +40,7 @@ function login(username, password) {
         .then(handleResponse)
         .then(employee => {
             if (employee) {
-                employee.authdata = window.btoa(username + ':' + password);
+                employee["authdata"] = window.btoa(username + ':' + password);
                 localStorage.setItem('loggedUser', JSON.stringify(employee));
             }
             return employee;

@@ -61,11 +61,11 @@ The application has two main entities:
 Before running the project, you must install the **SpringBloom.dev** Project in your local environment:
 
 ```bash
-$ git clone https://github.com/desiderati/springbloom.git
+git clone https://github.com/desiderati/springbloom.git
 
-$ cd springbloom
+cd springbloom
 
-$ mvn clean install
+mvn clean install
 ```
 
 ## Running the Project

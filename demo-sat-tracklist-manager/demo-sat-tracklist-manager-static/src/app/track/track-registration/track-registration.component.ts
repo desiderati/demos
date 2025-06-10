@@ -144,7 +144,8 @@ export class TrackRegistrationComponent implements OnInit {
             id: null,
             trackName: '',
             author: '',
-            duration: ''
+            duration: '',
+            processed: false,
         };
         TrackRegistrationComponent.clearErrorMessages();
         this.trackRegistrationForm.reset();

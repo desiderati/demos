@@ -45,11 +45,11 @@ The application has two main entities:
 Before running the server, you must install the **SpringBloom.dev** Project in your local environment:
 
 ```bash
-$ git clone https://github.com/desiderati/springbloom.git
+git clone https://github.com/desiderati/springbloom.git
 
-$ cd springbloom
+cd springbloom
 
-$ mvn clean install
+mvn clean install
 ```
 
 ## Building and Running the Server
@@ -57,17 +57,17 @@ $ mvn clean install
 ### Building the Project
 
 ```bash
-$ git clone https://github.com/desiderati/demos.git
+git clone https://github.com/desiderati/demos.git
 
-$ cd demos/demo-element-insurance/demo-element-insurance-server
+cd demos/demo-element-insurance/demo-element-insurance-server
 
-$ mvn clean install
+mvn clean install
 ```
 
 ### Running the Server
 
 ```bash
-$ java -Xms256m -Xmx512m -jar target/demo-element-insurance-server-0.0.1-SNAPSHOT-exec.war
+java -Xms256m -Xmx512m -jar target/demo-element-insurance-server-0.0.1-SNAPSHOT-exec.war
 ```
 
 ## API Endpoints

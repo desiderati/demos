@@ -29,7 +29,6 @@ exports.create = (req, res) => {
 
     Employee.usernameWasAlreadyTaken(null, req.body.username)
         .then(usernameWasAlreadyTaken => {
-
             if (usernameWasAlreadyTaken) {
                 return res.status(409).send({
                     message: "Username '" + req.body.username + "' was already taken!"
@@ -42,12 +41,14 @@ exports.create = (req, res) => {
             // I should encrypt the password, but I've preferred to maintain this way for simplicity.
             // In a real implementation, I would never opt for this approach.
             const employee = new Employee(Object.assign({}, req.body));
+
+            // noinspection JSUnresolvedReference
             employee.save()
                 .then(employee => {
                     res.send(employee);
                 })
                 .catch(err => {
-                    // I could let to the error handler, but I've preffered to show a custom message.
+                    // I could let to the error handler, but I've preferred to show a custom message.
                     res.status(500).send({
                         message: err.message || "Some error occurred while creating the employee."
                     });
@@ -57,6 +58,7 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
+    // noinspection JSUnresolvedReference
     Employee.find()
         .then(employees => {
             res.send(employees.map((employee) => {
@@ -65,7 +67,7 @@ exports.findAll = (req, res) => {
             }));
         })
         .catch(err => {
-            // I could let to the error handler, but I've preffered to show a custom message.
+            // I could let to the error handler, but I've preferred to show a custom message.
             res.status(500).send({
                 message: err.message || "Some error occurred while retrieving the employees."
             });
@@ -73,6 +75,7 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
+    // noinspection JSUnresolvedReference
     /** @namespace req.params.employeeId */
     Employee.findById(req.params.employeeId)
         .then(employee => {
@@ -85,7 +88,7 @@ exports.findOne = (req, res) => {
             res.send(employee);
         })
         .catch(err => {
-            // I could let to the error handler, but I've preffered to show a custom message.
+            // I could let to the error handler, but I've preferred to show a custom message.
             if (err.kind === 'ObjectId') {
                 return res.status(404).send({
                     message: "Employee not found with id " + req.params.employeeId
@@ -107,14 +110,13 @@ exports.update = (req, res) => {
 
     Employee.usernameWasAlreadyTaken(req.params.employeeId, req.body.username)
         .then(usernameWasAlreadyTaken => {
-
             if (usernameWasAlreadyTaken) {
                 return res.status(409).send({
                     message: "Username '" + req.body.username + "' was already taken!"
                 });
             }
 
-            // Just to guarantee that password will not be reseted to empty!
+            // Just to guarantee that the password will not be reseted to empty!
             if (!req.body.password) {
                 delete req.body['password'];
             }
@@ -122,6 +124,8 @@ exports.update = (req, res) => {
             // I should encrypt the password, but I've preferred to maintain this way for simplicity.
             // In a real implementation, I would never opt for this approach.
             const newEmployee = Object.assign({}, req.body);
+
+            // noinspection JSUnresolvedReference
             Employee.findByIdAndUpdate(req.params.employeeId, newEmployee, {lean: true})
                 .then(employee => {
                     if (!employee) {
@@ -135,7 +139,7 @@ exports.update = (req, res) => {
                     res.send(Object.assign(employee, newEmployee));
                 })
                 .catch(err => {
-                    // I could let to the error handler, but I've preffered to show a custom message.
+                    // I could let to the error handler, but I've preferred to show a custom message.
                     if (err.kind === 'ObjectId') {
                         return res.status(404).send({
                             message: "Employee not found with id " + req.params.employeeId
@@ -150,6 +154,7 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
+    // noinspection JSUnresolvedReference
     Employee.findByIdAndRemove(req.params.employeeId)
         .then(employee => {
             if (!employee) {
@@ -160,7 +165,7 @@ exports.delete = (req, res) => {
             res.send({message: "Employee deleted successfully!"});
         })
         .catch(err => {
-            // I could let to the error handler, but I've preffered to show a custom message.
+            // I could let to the error handler, but I've preferred to show a custom message.
             if (err.kind === 'ObjectId') {
                 return res.status(404).send({
                     message: "Employee not found with id " + req.params.employeeId

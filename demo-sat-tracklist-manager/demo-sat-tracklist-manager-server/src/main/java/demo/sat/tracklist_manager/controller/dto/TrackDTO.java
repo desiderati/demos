@@ -44,4 +44,5 @@ public class TrackDTO implements Serializable {
     @NotNull(message = "{track.duration.notNull}")
     private Integer duration;
 
+    private Boolean processed = false;
 }

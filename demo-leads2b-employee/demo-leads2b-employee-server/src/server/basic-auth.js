@@ -26,7 +26,7 @@ module.exports = async (req, res, next) => {
         return next();
     }
 
-    // Check for basic authorization header.
+    // Check for the basic authorization header.
     if (!req.headers.authorization || req.headers.authorization.indexOf('Basic ') === -1) {
         return res.status(401).json({message: 'Not Authorized!'});
     }
@@ -41,7 +41,7 @@ module.exports = async (req, res, next) => {
         return res.status(401).json({message: 'Invalid Authentication Credentials!'});
     }
 
-    // Attach user to request object.
+    // Attach a user to request object.
     req.employee = employee;
 
     next();

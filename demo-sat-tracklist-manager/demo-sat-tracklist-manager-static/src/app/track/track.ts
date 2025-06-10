@@ -22,11 +22,13 @@ export class Track {
     trackName: string;
     author: string;
     duration: string;
+    processed: boolean;
 
     constructor(id: number | null, trackName: string, author: string, duration: string) {
         this.id = id;
         this.trackName = trackName;
         this.author = author;
         this.duration = duration;
+        this.processed = false;
     }
 }

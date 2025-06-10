@@ -53,11 +53,20 @@
         <td>{{ track.author }}</td>
         <td>{{ track.duration }}</td>
         <td>
-            <button class="btn btn-primary" style="width: 85px" type="button" (click)="update(track.id!)">Update</button>
-            &nbsp;
-            <button class="btn btn-primary" style="width: 85px" type="button" (click)="remove(track.id!)">Remove</button>
-            &nbsp;
-            <button class="btn btn-info" style="width: 85px" type="button" (click)="viewDetails(track.id!)">Details</button>
+            <div *ngIf="track.processed; else processing">
+                <button class="btn btn-primary" style="width: 85px"
+                        type="button" (click)="update(track.id!)">Update</button>
+                &nbsp;
+                <button class="btn btn-primary" style="width: 85px"
+                        type="button" (click)="remove(track.id!)">Remove</button>
+                &nbsp;
+                <button class="btn btn-info" style="width: 85px"
+                        type="button" (click)="viewDetails(track.id!)">Details</button>
+            </div>
+            <ng-template #processing>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Processing...
+            </ng-template>
         </td>
     </tr>
     </tbody>

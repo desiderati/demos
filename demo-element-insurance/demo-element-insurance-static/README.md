@@ -37,9 +37,9 @@ The Angular application follows a standard structure:
 ```
 demo-element-insurance-static/
 ├── src/
-│   ├── app/                  # Application code
-│   ├── assets/               # Static assets
-│   └── environments/         # Environment configurations
+│   ├── app/          # Application code
+│   ├── assets/       # Static assets
+│   └── environments/ # Environment configurations
 ```
 
 ## Development Server
@@ -88,7 +88,7 @@ To deploy the application:
 If you encounter issues with the frontend application:
 
 1. Ensure the backend server is running
-2. Check browser console for JavaScript errors
+2. Check the browser's console for JavaScript errors
 3. Verify API endpoint configurations in the environment files
 4. Clear browser cache if necessary
 

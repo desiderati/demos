@@ -14,11 +14,11 @@ Simple project to demonstrate how to create a tree solution, where I can insert,
 Before everything, you must install the SpringBloom.dev Project in your local environment:
 
 ```
-$ git clone https://github.com/desiderati/springbloom.git
+git clone https://github.com/desiderati/springbloom.git
 
-$ cd springbloom
+cd springbloom
 
-$ mvn clean install
+mvn clean install
 ```
 
 ## A) Running the project from the scratch

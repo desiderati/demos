@@ -60,4 +60,6 @@ public class Track extends AbstractPersistableIdentity<Long> implements AsyncMes
     @NotNull(message = "{track.duration.notNull}")
     private Integer duration;
 
+    @Column(name = "processed", nullable = false)
+    private Boolean processed = false;
 }

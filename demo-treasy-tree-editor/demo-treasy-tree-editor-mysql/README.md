@@ -3,11 +3,11 @@
 ## A) Running the project
 
 ```bash
-$ git clone https://github.com/desiderati/demos.git
+git clone https://github.com/desiderati/demos.git
 
-$ cd demos/demo-treasy-tree-editor/demo-treasy-tree-editor-mysql
+cd demos/demo-treasy-tree-editor/demo-treasy-tree-editor-mysql
 
-$ docker-compose up -d && docker-compose logs -f
+docker-compose up -d && docker-compose logs -f
 ```
 
 ## B) Database configuration
