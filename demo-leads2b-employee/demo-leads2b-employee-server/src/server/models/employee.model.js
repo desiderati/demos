@@ -59,7 +59,7 @@ module.exports.usernameWasAlreadyTaken = (id, username) => {
     return new Promise(function (resolve, reject) {
         findByUsername(username)
             .then(employee => {
-                resolve(!!employee && (id === null || id !== employee._id));
+                resolve(!!employee && (id === null || id !== employee._id.toString()));
             })
             .catch(err => {
                 console.log(err);

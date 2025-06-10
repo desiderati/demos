@@ -74,3 +74,7 @@ For the system to function correctly, it is necessary to start the components in
 - HSQLDB
 - Angular
 - SpringBloom Framework
+
+## License
+
+This project is licensed under the MIT License.

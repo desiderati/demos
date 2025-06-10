@@ -23,7 +23,7 @@ The module consists of two main containers:
 
 The MongoDB configuration is defined in the `docker-compose.yml` file, which:
 
-- Sets up MongoDB 4.2.0
+- Sets up MongoDB 8
 - Configures data persistence using a local volume
 - Creates a network for communication between services
 - Sets up Mongo Express for database administration
@@ -65,6 +65,30 @@ Through this interface, you can:
 - Import and export data
 - Run MongoDB queries
 - Monitor database performance
+
+#### Configuration
+
+Environment variables are passed to the run command for configuring a mongo-express container.
+
+| Name                            | Default | Description                           |
+|---------------------------------|---------|---------------------------------------|
+| ME_CONFIG_BASICAUTH_USERNAME    | ''      | mongo-express web username            |
+| ME_CONFIG_BASICAUTH_PASSWORD    | ''      | mongo-express web password            |
+| ME_CONFIG_MONGODB_ENABLE_ADMIN  | 'true'  | Enable admin access to all databases. |
+| ME_CONFIG_MONGODB_ADMINUSERNAME | ''      | MongoDB admin username                |
+| ME_CONFIG_MONGODB_ADMINPASSWORD | ''      | MongoDB admin password                |
+| ME_CONFIG_MONGODB_PORT          | 27017   | MongoDB port                          |
+| ME_CONFIG_MONGODB_SERVER        | 'mongo' | MongoDB container name.               |
+
+Read [here](https://hub.docker.com/_/mongo-express) for more information.
+
+The following is only needed if ME_CONFIG_MONGODB_ENABLE_ADMIN is "false"
+
+| Name                            | Default | Description       |
+|---------------------------------|---------|-------------------|
+| ME_CONFIG_MONGODB_AUTH_DATABASE | 'db'    | Database name     |
+| ME_CONFIG_MONGODB_AUTH_USERNAME | 'admin' | Database username |
+| ME_CONFIG_MONGODB_AUTH_PASSWORD | 'pass'  | Database password |
 
 ## Stopping the Database
 

@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="demo-treasy-tree-editor-mysql: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" folderName="🐋 demos" server-name="Docker">
+    <deployment type="docker-compose.yml">
+      <settings>
+        <option name="envFilePath" value="" />
+        <option name="sourceFilePath" value="demos/demo-treasy-tree-editor/demo-treasy-tree-editor-mysql/docker-compose.yml" />
+      </settings>
+    </deployment>
+    <method v="2" />
+  </configuration>
+</component>

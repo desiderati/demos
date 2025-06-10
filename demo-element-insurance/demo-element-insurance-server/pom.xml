@@ -28,7 +28,7 @@
         <!--suppress MavenModelInspection-->
         <relativePath>../../../springbloom/springbloom-starter-web</relativePath>
     </parent>
-    <groupId>br.tech.desiderati.demo</groupId>
+    <groupId>br.tech.desiderati.demos</groupId>
     <artifactId>demo-element-insurance-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 

@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="demo-sat-tracklist-manager-static [start]" type="js.build_tools.npm" folderName="🎁 demos">
+  <configuration default="false" name="demo-sat-tracklist-manager-static [start]" type="js.build_tools.npm" folderName="🧰 demos">
     <package-json value="$PROJECT_DIR$/demos/demo-sat-tracklist-manager/demo-sat-tracklist-manager-static/package.json" />
     <command value="run" />
     <scripts>
