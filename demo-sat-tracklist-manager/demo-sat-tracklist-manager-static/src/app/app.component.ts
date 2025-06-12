@@ -19,8 +19,8 @@
 import {Component, OnInit} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 
+import {AtmosphereService} from '@desiderati/atmosphere';
 import {environment} from '../environments/environment';
-import {AtmosphereService} from './atmosphere/atmosphere.service';
 
 import Swal from 'sweetalert2';
 
