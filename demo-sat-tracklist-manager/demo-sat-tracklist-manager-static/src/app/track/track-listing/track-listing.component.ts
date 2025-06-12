@@ -16,7 +16,7 @@
  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
@@ -24,6 +24,8 @@ import {Router} from '@angular/router';
 import {Track} from '../track';
 import {TrackService} from '../track.service';
 import {NgForOf, NgIf} from '@angular/common';
+import {EventService} from '../../shared/event.service';
+import {Subscription} from 'rxjs';
 
 @Component({
     selector: 'app-track-listing',
@@ -35,7 +37,7 @@ import {NgForOf, NgIf} from '@angular/common';
     ],
     styleUrls: ['./track-listing.component.css']
 })
-export class TrackListingComponent implements OnInit {
+export class TrackListingComponent implements OnInit, OnDestroy {
 
     @Output()
     trackUpdateEvent = new EventEmitter<Track>();
@@ -46,14 +48,30 @@ export class TrackListingComponent implements OnInit {
     tracks: Track[] = [];
     filterByTrackNameInput = new FormControl('');
 
+    private trackListRefreshSubscription: Subscription | null = null;
+
     constructor(
+        private eventService: EventService,
         private trackService: TrackService,
-        private router: Router
+        private router: Router,
     ) {
     }
 
     ngOnInit(): void {
         this.fetchAllTracks();
+
+        // Subscribe to the track list update events.
+        this.trackListRefreshSubscription = this.eventService.trackListRefresh$.subscribe(() => {
+            this.fetchAllTracks();
+        });
+    }
+
+    ngOnDestroy(): void {
+        // Clean up subscription when component is destroyed.
+        if (this.trackListRefreshSubscription) {
+            this.trackListRefreshSubscription.unsubscribe();
+            this.trackListRefreshSubscription = null;
+        }
     }
 
     fetchAllTracks() {

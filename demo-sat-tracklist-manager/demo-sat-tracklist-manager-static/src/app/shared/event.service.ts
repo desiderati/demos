@@ -16,40 +16,22 @@
  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-import {Component, OnInit} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
 
-import {AtmosphereService} from '@desiderati/atmosphere';
-import {environment} from '../environments/environment';
-import {EventService} from './shared/event.service';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
-import toastr from 'toastr';
-
-const notificationUrl = environment.notificationUrl;
-
-@Component({
-    selector: 'app-root',
-    imports: [RouterOutlet],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.css'
+@Injectable({
+  providedIn: 'root'
 })
-export class AppComponent implements OnInit {
-    title = 'demo-sat-tracklist-manager-static';
+export class EventService {
 
-    constructor(
-        private atmosphereService: AtmosphereService,
-        private eventService: EventService
-    ) {
-    }
+  private trackListRefreshSource = new Subject<void>();
 
-    ngOnInit(): void {
-        this.atmosphereService.connect(notificationUrl + 'desiderati').subscribe({
-            next: (msg: string) => {
-                // Trigger the track list update event.
-                this.eventService.triggerRefreshTrackList();
-                toastr.success(msg);
-            },
-            error: (err: any) => console.error('Erro:', err),
-        });
-    }
+  // Observable that components can subscribe to.
+  trackListRefresh$ = this.trackListRefreshSource.asObservable();
+
+  // Method to call when we want to update the track list.
+  triggerRefreshTrackList() {
+    this.trackListRefreshSource.next();
+  }
 }
